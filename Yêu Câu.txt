@@ -1,0 +1,16 @@
+﻿YÊU CẦU CỦA BÀI TẬP 2 - QUẢN LÍ HỌC SINH
+
+- Khi click và menutab sẽ hiện ra các mục muốn truy cập , khi đó mục vừa chọn sẽ hiện ra các mục
+con để chọn ,tuy nhiên ban đầu chỉ chọn được Open để mở dữ liệu ,và các mục khác từ đó cũng được
+mở theo.
+-mỗi nút ở đây sẽ có chức năng thêm sửa xóa hiện thị lên giao diện là listview,muốn lưu vào csdl 
+thì phải ấn mục Save hoặc ctrl + s. khi đó dữ liệu mới lưu vào csdl.khi clich vào listview sẽ trả
+dữ liệu về các ô điền thông tin ,và sẽ sửa tại ô đó.
+- mỗi phần của được chia ở trong đề tài.và mỗi thành viên sẽ làm vào 1 usercontrol riêng của mình
+lưu vào frmExtra và sẽ đổ các usercontrol đó vào form chính...
+
+----- ở đây t demo về phần sửa Giáo Viên...ở đây t chưa làm hoàn thiện .các phần khóa chính của 
+bảng này là khóa ngoại bảng kia thì sẽ load lên combobox chứ k cần điền..và khóa chính của bảng 
+cần sửa phải enable để chánh đụng chạm...
+
+yêu cầu có thể thay đổi cần được m.n góp ý...để bài tập được hoàng thiện thks! ^^.
