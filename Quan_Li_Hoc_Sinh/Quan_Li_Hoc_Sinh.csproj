@@ -54,12 +54,6 @@
     <Compile Include="frmExtra\frmBangDiem.Designer.cs">
       <DependentUpon>frmBangDiem.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmExtra\frmDangKi.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="frmExtra\frmDangKi.Designer.cs">
-      <DependentUpon>frmDangKi.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmExtra\frmGiaoVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,12 +65,6 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmExtra\frmHelp.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="frmExtra\frmHelp.Designer.cs">
-      <DependentUpon>frmHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="frmExtra\frmHoSoHS.cs">
       <SubType>UserControl</SubType>
@@ -101,9 +89,6 @@
     <EmbeddedResource Include="frmExtra\frmBangDiem.resx">
       <DependentUpon>frmBangDiem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExtra\frmDangKi.resx">
-      <DependentUpon>frmDangKi.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmExtra\frmForm.resx">
       <DependentUpon>frmForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,9 +97,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmExtra\frmHelp.resx">
-      <DependentUpon>frmHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExtra\frmHoSoHS.resx">
       <DependentUpon>frmHoSoHS.cs</DependentUpon>
@@ -147,6 +129,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\RED-DEVIL.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Manchester United 1970.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

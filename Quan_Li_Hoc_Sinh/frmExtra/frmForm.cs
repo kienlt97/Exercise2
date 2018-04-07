@@ -17,7 +17,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 			InitializeComponent();
 		}
 
-		#region 
+		#region Save_DataBase
 		private void Luu_Click(object sender, EventArgs e)
 		{
 			int x = fgv.index();
@@ -47,7 +47,6 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 			pnMainGV.Controls.Add(fgv);
 		}
 		#endregion
-	
 		#region LopHoc
 		frmLop_MonHoc frmLop = new frmLop_MonHoc();
 			private void openToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -75,8 +74,12 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 				pnMainGV.Controls.Add(frmbd);
 			}
 
+
 		#endregion
 
-		
+		private void trangChuToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			pnMainGV.Controls.Clear();
+		}
 	}
 }

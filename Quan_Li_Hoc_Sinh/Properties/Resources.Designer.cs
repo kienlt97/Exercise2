@@ -63,6 +63,16 @@ namespace Quan_Li_Hoc_Sinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Manchester_United_1970 {
+            get {
+                object obj = ResourceManager.GetObject("Manchester United 1970", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RED_DEVIL {
             get {
                 object obj = ResourceManager.GetObject("RED-DEVIL", resourceCulture);
