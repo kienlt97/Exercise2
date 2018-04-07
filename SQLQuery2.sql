@@ -99,14 +99,15 @@ END
 		DELETE FROM dbo.GIAO_VIEN WHERE MAGV = @MAGV
  END
  
- CREATE PROC dbo.KiemTraDN(@user VARCHAR(50),@pass varchar(50)) AS 
+ CREATE PROC dbo.KiemTraDN(@Username VARCHAR(50),@Pass varchar(50)) AS 
  BEGIN
-	SELECT * FROM dbo.Login WHERE Username = @user AND Pass = @pass
+	SELECT * FROM dbo.Login WHERE Username = @Username AND Pass = @Pass
  END
  
-CREATE PROC ThemTK(@user VARCHAR(50),@pass varchar(50)) AS 
+CREATE PROC ThemTK(@Username VARCHAR(50),@Pass varchar(50)) AS 
  BEGIN
 	INSERT INTO dbo.Login
 	        ( Username, Pass )
-	VALUES  ( @user,@pass )
+	VALUES  ( @Username,@Pass )
  END
+ 

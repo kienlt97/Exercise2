@@ -17,16 +17,8 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 			InitializeComponent();
 		}
 
-
-		#region GiaoVien
-		frmGiaoVien fgv = new frmGiaoVien();
-		private void open_Click(object sender, EventArgs e)
-		{
-			pnMainGV.Controls.Clear();
-			fgv.Dock = DockStyle.Fill;
-			pnMainGV.Controls.Add(fgv);
-		}
-		private void save_Click(object sender, EventArgs e)
+		#region 
+		private void Luu_Click(object sender, EventArgs e)
 		{
 			int x = fgv.index();
 			switch (x)
@@ -44,10 +36,20 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 					MessageBox.Show("Đã xóa!");
 					break;
 			}
+		}	
+		#endregion
+		#region GiaoVien
+		frmGiaoVien fgv = new frmGiaoVien();
+		private void open_Click(object sender, EventArgs e)
+		{
+			pnMainGV.Controls.Clear();
+			fgv.Dock = DockStyle.Fill;
+			pnMainGV.Controls.Add(fgv);
 		}
 		#endregion
+	
 		#region LopHoc
-			frmLop_MonHoc frmLop = new frmLop_MonHoc();
+		frmLop_MonHoc frmLop = new frmLop_MonHoc();
 			private void openToolStripMenuItem1_Click(object sender, EventArgs e)
 			{
 				pnMainGV.Controls.Clear();
@@ -72,31 +74,9 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 				frmbd.Dock = DockStyle.Fill;
 				pnMainGV.Controls.Add(frmbd);
 			}
+
 		#endregion
 
-		private void trangChuToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void đôiMâtKhâuToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void đăngXuâtToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void trơGiupToolStripMenuItem1_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void thôngTinLơpHocToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-
-		}
+		
 	}
 }

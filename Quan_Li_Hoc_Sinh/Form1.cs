@@ -50,21 +50,12 @@ namespace Quan_Li_Hoc_Sinh
 			}
 			reader.Close();
 		}
-
+		frmDangKi frmdk = new frmDangKi();
 		private void taotailkhoan_Click(object sender, EventArgs e)
 		{
-			dt.OpenConnection();
-			SqlCommand cmd = new SqlCommand();
-			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "ThemTK";
-			cmd.Connection = dt.conn;
-
-			cmd.Parameters.Add("@Username", SqlDbType.NVarChar).Value = txtuser.Text;
-			cmd.Parameters.Add("@Pass", SqlDbType.NVarChar).Value = txtpass.Text;
-
-			int ret = cmd.ExecuteNonQuery();
-			if (ret > 0)
-				MessageBox.Show("Đăng Kí Thành Công!");
+			this.Controls.Clear();
+			frmdk.Dock = DockStyle.Fill;
+			this.Controls.Add(frmdk);
 		}
 
 		private void taotailkhoan_MouseHover(object sender, EventArgs e)

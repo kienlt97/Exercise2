@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.grpdangnhap = new System.Windows.Forms.GroupBox();
 			this.taotailkhoan = new System.Windows.Forms.Label();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.btnlogin = new System.Windows.Forms.Button();
@@ -36,31 +36,31 @@
 			this.txtuser = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.groupBox1.SuspendLayout();
+			this.grpdangnhap.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// groupBox1
+			// grpdangnhap
 			// 
-			this.groupBox1.BackColor = System.Drawing.SystemColors.Highlight;
-			this.groupBox1.Controls.Add(this.taotailkhoan);
-			this.groupBox1.Controls.Add(this.checkBox1);
-			this.groupBox1.Controls.Add(this.btnlogin);
-			this.groupBox1.Controls.Add(this.txtpass);
-			this.groupBox1.Controls.Add(this.txtuser);
-			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox1.Location = new System.Drawing.Point(142, 127);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(454, 227);
-			this.groupBox1.TabIndex = 1;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Đăng Nhập :";
+			this.grpdangnhap.BackColor = System.Drawing.SystemColors.Highlight;
+			this.grpdangnhap.Controls.Add(this.taotailkhoan);
+			this.grpdangnhap.Controls.Add(this.checkBox1);
+			this.grpdangnhap.Controls.Add(this.btnlogin);
+			this.grpdangnhap.Controls.Add(this.txtpass);
+			this.grpdangnhap.Controls.Add(this.txtuser);
+			this.grpdangnhap.Controls.Add(this.label2);
+			this.grpdangnhap.Controls.Add(this.label1);
+			this.grpdangnhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.grpdangnhap.Location = new System.Drawing.Point(155, 131);
+			this.grpdangnhap.Name = "grpdangnhap";
+			this.grpdangnhap.Size = new System.Drawing.Size(454, 227);
+			this.grpdangnhap.TabIndex = 1;
+			this.grpdangnhap.TabStop = false;
+			this.grpdangnhap.Text = "Đăng Nhập :";
 			// 
 			// taotailkhoan
 			// 
 			this.taotailkhoan.AutoSize = true;
-			this.taotailkhoan.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+			this.taotailkhoan.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.taotailkhoan.Location = new System.Drawing.Point(32, 187);
 			this.taotailkhoan.Name = "taotailkhoan";
 			this.taotailkhoan.Size = new System.Drawing.Size(143, 25);
@@ -129,20 +129,20 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
 			this.ClientSize = new System.Drawing.Size(717, 530);
-			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.grpdangnhap);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Name = "frmMain";
 			this.Text = "Quản Lí Học Sinh";
 			this.Load += new System.EventHandler(this.frmMain_Load);
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.grpdangnhap.ResumeLayout(false);
+			this.grpdangnhap.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox grpdangnhap;
 		private System.Windows.Forms.Label taotailkhoan;
 		private System.Windows.Forms.CheckBox checkBox1;
 		private System.Windows.Forms.Button btnlogin;
