@@ -63,59 +63,9 @@ namespace Quan_Li_Hoc_Sinh.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Close_2_icon {
-            get {
-                object obj = ResourceManager.GetObject("Close-2-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Manchester_United_1970 {
             get {
                 object obj = ResourceManager.GetObject("Manchester United 1970", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ok_i111con__1_ {
-            get {
-                object obj = ResourceManager.GetObject("Ok-i111con (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ok_icon {
-            get {
-                object obj = ResourceManager.GetObject("ok-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ok_icon1 {
-            get {
-                object obj = ResourceManager.GetObject("Ok-icon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap RED_DEVIL {
-            get {
-                object obj = ResourceManager.GetObject("RED-DEVIL", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

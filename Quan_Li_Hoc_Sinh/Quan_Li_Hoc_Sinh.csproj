@@ -142,18 +142,6 @@
   <ItemGroup>
     <None Include="bin\Debug\Manchester United 1970.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\ok-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Ok-icon1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Ok-i111con %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Close-2-icon.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
