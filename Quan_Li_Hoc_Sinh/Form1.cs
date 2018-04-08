@@ -50,12 +50,9 @@ namespace Quan_Li_Hoc_Sinh
 			}
 			reader.Close();
 		}
-		frmDangKi frmdk = new frmDangKi();
-		private void taotailkhoan_Click(object sender, EventArgs e)
+ 		private void taotailkhoan_Click(object sender, EventArgs e)
 		{
-			this.Controls.Clear();
-			frmdk.Dock = DockStyle.Fill;
-			this.Controls.Add(frmdk);
+		 
 		}
 
 		private void taotailkhoan_MouseHover(object sender, EventArgs e)
