@@ -35,8 +35,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnlogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,17 +68,20 @@
             // 
             // txtpass
             // 
+            this.txtpass.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.Location = new System.Drawing.Point(302, 231);
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
-            this.txtpass.Size = new System.Drawing.Size(300, 23);
+            this.txtpass.Size = new System.Drawing.Size(300, 25);
             this.txtpass.TabIndex = 2;
+            this.txtpass.UseSystemPasswordChar = true;
             // 
             // txtuser
             // 
+            this.txtuser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.Location = new System.Drawing.Point(302, 164);
             this.txtuser.Name = "txtuser";
-            this.txtuser.Size = new System.Drawing.Size(300, 23);
+            this.txtuser.Size = new System.Drawing.Size(300, 25);
             this.txtuser.TabIndex = 1;
             // 
             // label2
@@ -121,16 +124,6 @@
             this.panel1.Size = new System.Drawing.Size(717, 530);
             this.panel1.TabIndex = 2;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(222, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(286, 33);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Đăng nhập hệ thống";
-            // 
             // btnThoat
             // 
             this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -143,6 +136,16 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(222, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(286, 33);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Đăng nhập hệ thống";
             // 
             // btnlogin
             // 
@@ -159,6 +162,7 @@
             // 
             // frmMain
             // 
+            this.AcceptButton = this.btnlogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
@@ -166,13 +170,13 @@
             this.ClientSize = new System.Drawing.Size(717, 530);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lí Học Sinh";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Enter += new System.EventHandler(this.btnlogin_Click);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
