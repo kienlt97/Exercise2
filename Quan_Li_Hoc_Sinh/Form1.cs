@@ -52,7 +52,13 @@ namespace Quan_Li_Hoc_Sinh
 		}
  		private void taotailkhoan_Click(object sender, EventArgs e)
 		{
+<<<<<<< HEAD
 		 
+=======
+            this.Hide();
+            frmdk.ShowDialog();
+            this.Show();
+>>>>>>> 532cf3d5faee2a18ee7ae5c0e39117c5f122067d
 		}
 
 		private void taotailkhoan_MouseHover(object sender, EventArgs e)
@@ -64,6 +70,24 @@ namespace Quan_Li_Hoc_Sinh
 		{
 			taotailkhoan.ForeColor = Color.Black;
 		}
-	}
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+        }
+    }
 
 }
