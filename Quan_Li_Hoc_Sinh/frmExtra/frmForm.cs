@@ -35,8 +35,17 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 					fgv.DeleteGV_Database();
 					MessageBox.Show("Đã xóa!");
 					break;
-			}
-		}	
+            }
+            int y = frmhs.kt();
+            switch (y)
+            {
+                case 1:
+                    frmhs.DeleteHS_Database();
+                    MessageBox.Show("Đã xóa học sinh!");
+                    break;
+
+            }
+        }	
 		#endregion
 		#region GiaoVien
 		frmGiaoVien fgv = new frmGiaoVien();
@@ -81,5 +90,13 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 		{
 			pnMainGV.Controls.Clear();
 		}
-	}
+
+        frmHelp frmh = new frmHelp();
+        private void trơGiupToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            pnMainGV.Controls.Clear();
+            frmh.Dock = DockStyle.Fill;
+            pnMainGV.Controls.Add(frmh);
+        }
+    }
 }

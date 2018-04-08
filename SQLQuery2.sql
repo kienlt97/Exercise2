@@ -113,3 +113,11 @@ CREATE PROC ThemTK(@Username VARCHAR(50),@Pass varchar(50)) AS
 	VALUES  ( @Username,@Pass )
  END
  
+
+ CREATE PROC XOAHS (@MAHS char(10))
+	AS
+	BEGIN 
+				DELETE FROM dbo.HOSOHOCSINH
+				WHERE MAHS=@MAHS
+	END
+	--exec XOAHS 'HS01'
