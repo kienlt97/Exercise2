@@ -9,7 +9,7 @@ namespace Quan_Li_Hoc_Sinh
 {
 	public class DataConnection
 	{
-		string  Strcon = @"Server =DESKTOP-2NN1U31\SQLEXPRESS; Database = QL_GVHS ; Integrated Security = True";
+		string  Strcon = @"Data Source=DESKTOP-4IRSTF4;Initial Catalog=QL_GVHS;Integrated Security=True";
 		public  SqlConnection conn = null;
 		public  void OpenConnection()
 		{

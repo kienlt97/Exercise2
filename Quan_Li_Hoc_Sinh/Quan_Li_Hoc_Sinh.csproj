@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataConnection.cs" />
+    <Compile Include="frmDangKi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangKi.Designer.cs">
+      <DependentUpon>frmDangKi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmExtra\frmBangDiem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmDangKi.resx">
+      <DependentUpon>frmDangKi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmExtra\frmBangDiem.resx">
       <DependentUpon>frmBangDiem.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +141,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\Manchester United 1970.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ok-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Ok-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Ok-i111con %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Close-2-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
