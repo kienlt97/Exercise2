@@ -50,6 +50,7 @@ namespace Quan_Li_Hoc_Sinh
 			}
 			reader.Close();
 		}
+
         frmDangKi frmdk = new frmDangKi();
  		private void taotailkhoan_Click(object sender, EventArgs e)
 		{
