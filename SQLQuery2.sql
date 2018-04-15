@@ -48,8 +48,6 @@ Username VARCHAR(50) PRIMARY KEY,
 Pass VARCHAR(50),
 )
 
-INSERT INTO Login VALUES('admin','123456')
-
 INSERT INTO dbo.LOP
         ( MALOP, TENLOP )
 VALUES  ( '01', -- MALOP - varchar(10)
