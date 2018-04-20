@@ -72,6 +72,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmExtra\frmHelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="frmExtra\frmHelp.Designer.cs">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmExtra\frmHoSoHS.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExtra\frmHelp.resx">
+      <DependentUpon>frmHelp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmExtra\frmHoSoHS.resx">
       <DependentUpon>frmHoSoHS.cs</DependentUpon>

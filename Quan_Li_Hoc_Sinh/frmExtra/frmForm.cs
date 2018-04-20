@@ -16,11 +16,12 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 		{
 			InitializeComponent();
 		}
-
+		frmGiaoVien fgv = new frmGiaoVien();
 		#region Save_DataBase
 		private void Luu_Click(object sender, EventArgs e)
 		{
 			int x = fgv.index();
+		//	x = frmhs.kt();
 			switch (x)
 			{
 				case 1:
@@ -35,11 +36,15 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 					fgv.DeleteGV_Database();
 					MessageBox.Show("Đã xóa!");
 					break;
+				case 4:
+					frmhs.DeleteHS_Database();
+					MessageBox.Show("Đã xóa!");
+					break;
 			}
 		}	
 		#endregion
 		#region GiaoVien
-		frmGiaoVien fgv = new frmGiaoVien();
+		
 		private void open_Click(object sender, EventArgs e)
 		{
 			pnMainGV.Controls.Clear();

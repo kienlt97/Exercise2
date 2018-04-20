@@ -21,13 +21,13 @@ namespace Quan_Li_Hoc_Sinh
 		#region ShowData
 		private void fixGiaoVien_Load(object sender, EventArgs e)
 		{
-			Show();
+			ShowData();
 			Lop();
 		}
 
 		List<string> lst = new List<string>();
 		List<string> lstMaLp = new List<string>();
-		public void Show()
+		public void ShowData()
 		{
 			dt.OpenConnection();
 			SqlCommand cmd = new SqlCommand();
@@ -98,12 +98,12 @@ namespace Quan_Li_Hoc_Sinh
 				malopcn = arrPM[0];
 			}
 		}
-		string malopgd = null;
- 		private void cblopgiangday_SelectedIndexChanged(object sender, EventArgs e)
+		string malpgd = "";
+  		private void cblopgiangday_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			string valuePM = cblopgiangday.SelectedItem.ToString();
 			string[] arrPM1 = valuePM.Split('-');
-			malopgd = arrPM1[0];
+			malpgd = arrPM1[0];
 		}
 
 		#endregion
@@ -135,12 +135,12 @@ namespace Quan_Li_Hoc_Sinh
 			cmd.Parameters.Add("@MAGV", SqlDbType.NVarChar).Value = txtmagv.Text;
 			cmd.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = txttenGV.Text;
 			cmd.Parameters.Add("@THONGTIN", SqlDbType.NVarChar).Value = txtthongtin.Text;
-			cmd.Parameters.Add("@CNLOP", SqlDbType.NVarChar).Value = malopcn;
-			cmd.Parameters.Add("@GDAY", SqlDbType.NVarChar).Value = malopgd;
+			cmd.Parameters.Add("@CNLOP", SqlDbType.NVarChar).Value = cbMalop.Text;
+			cmd.Parameters.Add("@GDAY", SqlDbType.NVarChar).Value = cblopgiangday.Text;
 			int ret = cmd.ExecuteNonQuery();
 			lvGV.Items.Clear();
 			if (ret > 0)
-				Show();
+				ShowData();
 		}
 		public void AddGV_Database()
 		{
@@ -154,11 +154,11 @@ namespace Quan_Li_Hoc_Sinh
 			cmd.Parameters.Add("@TENGV", SqlDbType.NVarChar).Value = txttenGV.Text;
 			cmd.Parameters.Add("@THONGTIN", SqlDbType.NVarChar).Value = txtthongtin.Text;
 			cmd.Parameters.Add("@CNLOP", SqlDbType.NVarChar).Value = malopcn;
-			cmd.Parameters.Add("@GDAY", SqlDbType.NVarChar).Value = malopgd;
+			cmd.Parameters.Add("@GDAY", SqlDbType.NVarChar).Value = malpgd;
 			int ret = cmd.ExecuteNonQuery();
 			lvGV.Items.Clear();
 			if (ret > 0)
-				Show();
+				ShowData();
 		}
 		public void DeleteGV_Database()
 		{
@@ -173,7 +173,7 @@ namespace Quan_Li_Hoc_Sinh
 			int ret = cmd.ExecuteNonQuery();
 			lvGV.Items.Clear();
 			if (ret > 0)
-				Show();
+				ShowData();
 		}
 		#endregion
 		#region Control
@@ -186,10 +186,9 @@ namespace Quan_Li_Hoc_Sinh
 			liv.SubItems[0].Text = txtmagv.Text;
 			liv.SubItems[1].Text = txttenGV.Text;
 			liv.SubItems[2].Text = txtthongtin.Text;
-			liv.SubItems[3].Text = malopcn;
-			liv.SubItems[4].Text = malopgd;
-			MessageBox.Show(malopcn);
-			MessageBox.Show(malopgd);
+			liv.SubItems[3].Text = cbMalop.Text;
+			liv.SubItems[4].Text = cblopgiangday.Text;
+			 
 		}
 
 		private void btnTimKiem_Click(object sender, EventArgs e)
@@ -236,7 +235,7 @@ namespace Quan_Li_Hoc_Sinh
 				liv.SubItems.Add(txttenGV.Text);
 				liv.SubItems.Add(txtthongtin.Text);
 				liv.SubItems.Add(malopcn);
-				liv.SubItems.Add(malopgd);
+				liv.SubItems.Add(malpgd);
 				lvGV.Items.Add(liv);
 			}
 
