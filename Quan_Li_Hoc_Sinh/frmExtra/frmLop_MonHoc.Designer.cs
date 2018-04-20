@@ -36,7 +36,6 @@
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.btnresetlh = new System.Windows.Forms.Button();
-			this.btnXoalh = new System.Windows.Forms.Button();
 			this.btnsualh = new System.Windows.Forms.Button();
 			this.btnthemlh = new System.Windows.Forms.Button();
 			this.txttenlp = new System.Windows.Forms.TextBox();
@@ -50,7 +49,7 @@
 			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtghichu = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.btnresetmh = new System.Windows.Forms.Button();
 			this.btnxoamh = new System.Windows.Forms.Button();
@@ -140,6 +139,7 @@
 			this.lvLopHoc.TabIndex = 0;
 			this.lvLopHoc.UseCompatibleStateImageBehavior = false;
 			this.lvLopHoc.View = System.Windows.Forms.View.Details;
+			this.lvLopHoc.SelectedIndexChanged += new System.EventHandler(this.lvLopHoc_SelectedIndexChanged);
 			// 
 			// columnHeader1
 			// 
@@ -156,7 +156,6 @@
 			// 
 			this.groupBox3.BackColor = System.Drawing.SystemColors.AppWorkspace;
 			this.groupBox3.Controls.Add(this.btnresetlh);
-			this.groupBox3.Controls.Add(this.btnXoalh);
 			this.groupBox3.Controls.Add(this.btnsualh);
 			this.groupBox3.Controls.Add(this.btnthemlh);
 			this.groupBox3.Controls.Add(this.txttenlp);
@@ -173,39 +172,33 @@
 			// 
 			// btnresetlh
 			// 
-			this.btnresetlh.Location = new System.Drawing.Point(165, 150);
+			this.btnresetlh.Location = new System.Drawing.Point(190, 108);
 			this.btnresetlh.Name = "btnresetlh";
-			this.btnresetlh.Size = new System.Drawing.Size(100, 23);
+			this.btnresetlh.Size = new System.Drawing.Size(75, 23);
 			this.btnresetlh.TabIndex = 6;
 			this.btnresetlh.Text = "Reset";
 			this.btnresetlh.UseVisualStyleBackColor = true;
-			// 
-			// btnXoalh
-			// 
-			this.btnXoalh.Location = new System.Drawing.Point(19, 150);
-			this.btnXoalh.Name = "btnXoalh";
-			this.btnXoalh.Size = new System.Drawing.Size(100, 23);
-			this.btnXoalh.TabIndex = 5;
-			this.btnXoalh.Text = "Xóa";
-			this.btnXoalh.UseVisualStyleBackColor = true;
+			this.btnresetlh.Click += new System.EventHandler(this.btnresetlh_Click);
 			// 
 			// btnsualh
 			// 
-			this.btnsualh.Location = new System.Drawing.Point(165, 108);
+			this.btnsualh.Location = new System.Drawing.Point(97, 108);
 			this.btnsualh.Name = "btnsualh";
-			this.btnsualh.Size = new System.Drawing.Size(100, 23);
+			this.btnsualh.Size = new System.Drawing.Size(72, 23);
 			this.btnsualh.TabIndex = 4;
 			this.btnsualh.Text = "Sửa";
 			this.btnsualh.UseVisualStyleBackColor = true;
+			this.btnsualh.Click += new System.EventHandler(this.btnsualh_Click);
 			// 
 			// btnthemlh
 			// 
 			this.btnthemlh.Location = new System.Drawing.Point(19, 108);
 			this.btnthemlh.Name = "btnthemlh";
-			this.btnthemlh.Size = new System.Drawing.Size(100, 23);
+			this.btnthemlh.Size = new System.Drawing.Size(72, 23);
 			this.btnthemlh.TabIndex = 3;
 			this.btnthemlh.Text = "Thêm";
 			this.btnthemlh.UseVisualStyleBackColor = true;
+			this.btnthemlh.Click += new System.EventHandler(this.btnthemlh_Click);
 			// 
 			// txttenlp
 			// 
@@ -285,6 +278,7 @@
 			this.lvMonHoc.TabIndex = 1;
 			this.lvMonHoc.UseCompatibleStateImageBehavior = false;
 			this.lvMonHoc.View = System.Windows.Forms.View.Details;
+			this.lvMonHoc.SelectedIndexChanged += new System.EventHandler(this.lvMonHoc_SelectedIndexChanged);
 			// 
 			// columnHeader3
 			// 
@@ -306,7 +300,7 @@
 			// groupBox4
 			// 
 			this.groupBox4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-			this.groupBox4.Controls.Add(this.textBox1);
+			this.groupBox4.Controls.Add(this.txtghichu);
 			this.groupBox4.Controls.Add(this.label5);
 			this.groupBox4.Controls.Add(this.btnresetmh);
 			this.groupBox4.Controls.Add(this.btnxoamh);
@@ -324,12 +318,12 @@
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = " ";
 			// 
-			// textBox1
+			// txtghichu
 			// 
-			this.textBox1.Location = new System.Drawing.Point(99, 76);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(210, 20);
-			this.textBox1.TabIndex = 16;
+			this.txtghichu.Location = new System.Drawing.Point(99, 76);
+			this.txtghichu.Name = "txtghichu";
+			this.txtghichu.Size = new System.Drawing.Size(210, 20);
+			this.txtghichu.TabIndex = 16;
 			// 
 			// label5
 			// 
@@ -348,6 +342,7 @@
 			this.btnresetmh.TabIndex = 14;
 			this.btnresetmh.Text = "Reset";
 			this.btnresetmh.UseVisualStyleBackColor = true;
+			this.btnresetmh.Click += new System.EventHandler(this.btnresetmh_Click);
 			// 
 			// btnxoamh
 			// 
@@ -357,6 +352,7 @@
 			this.btnxoamh.TabIndex = 13;
 			this.btnxoamh.Text = "Xóa";
 			this.btnxoamh.UseVisualStyleBackColor = true;
+			this.btnxoamh.Click += new System.EventHandler(this.btnxoamh_Click);
 			// 
 			// btnsuamh
 			// 
@@ -366,6 +362,7 @@
 			this.btnsuamh.TabIndex = 12;
 			this.btnsuamh.Text = "Sửa";
 			this.btnsuamh.UseVisualStyleBackColor = true;
+			this.btnsuamh.Click += new System.EventHandler(this.btnsuamh_Click);
 			// 
 			// btnthemmh
 			// 
@@ -375,6 +372,7 @@
 			this.btnthemmh.TabIndex = 11;
 			this.btnthemmh.Text = "Thêm";
 			this.btnthemmh.UseVisualStyleBackColor = true;
+			this.btnthemmh.Click += new System.EventHandler(this.btnthemmh_Click);
 			// 
 			// txttenmh
 			// 
@@ -454,7 +452,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox txttenlp;
 		private System.Windows.Forms.Button btnresetlh;
-		private System.Windows.Forms.Button btnXoalh;
 		private System.Windows.Forms.Button btnsualh;
 		private System.Windows.Forms.Button btnthemlh;
 		private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -470,7 +467,7 @@
 		private System.Windows.Forms.TextBox txtmamh;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox txtghichu;
 		private System.Windows.Forms.Label label5;
 	}
 }

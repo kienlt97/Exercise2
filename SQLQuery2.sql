@@ -48,43 +48,8 @@ CREATE TABLE Login(
 Username VARCHAR(50) PRIMARY KEY,
 Pass VARCHAR(50),
 )
-<<<<<<< HEAD
-
-=======
 go
-INSERT INTO Login VALUES('admin','123456')
-go
->>>>>>> 883458c7d90abfa052e5c1e3bc975d98a1c40e13
-INSERT INTO dbo.LOP
-        ( MALOP, TENLOP )
-VALUES  ( '01', -- MALOP - varchar(10)
-          'A1'  -- TENLOP - varchar(15)
-          )
-		  INSERT INTO dbo.LOP
-        ( MALOP, TENLOP )
-VALUES  ( '02', -- MALOP - varchar(10)
-          'A2'  -- TENLOP - varchar(15)
-          )
-		  INSERT INTO dbo.LOP
-        ( MALOP, TENLOP )
-VALUES  ( '03', -- MALOP - varchar(10)
-          'A3'  -- TENLOP - varchar(15)
-          )
-		  INSERT INTO dbo.LOP
-        ( MALOP, TENLOP )
-VALUES  ( '04', -- MALOP - varchar(10)
-          'A4'  -- TENLOP - varchar(15)
-          )
-		  INSERT INTO dbo.LOP
-        ( MALOP, TENLOP )
-VALUES  ( '05', -- MALOP - varchar(10)
-          'A5'  -- TENLOP - varchar(15)
-          )
-		  INSERT INTO dbo.LOP
-        ( MALOP, TENLOP )
-VALUES  ( '07', -- MALOP - varchar(10)
-          'A7'  -- TENLOP - varchar(15)
-          )
+ 
 
  
 CREATE PROC ThemGV(@MAGV char(10),@TENGV  nvarchar(40),@THONGTIN nvarchar(100),@CNLOP  varchar(10),@GDAY  VARCHAR(10)) AS
@@ -145,4 +110,45 @@ create proc TimKiemGiangDay (@GDAY varchar(10)) as
 begin
 	select * from GIAO_VIEN
 	where GDAY=@GDAY
-end
+END
+
+ INSERT INTO dbo.MONHOC
+         ( MAMON, TENMON, GHICHU )
+ VALUES  ( '', N'',N'')
+-- thêm sửa xóa môn học và lớp học
+CREATE PROC ThemMH(@MAMON char(10),@TENMON nvarchar(40),@GHICHU nvarchar(100)) AS
+BEGIN
+	 INSERT INTO dbo.MONHOC
+         ( MAMON, TENMON, GHICHU )
+	VALUES  ( @MAMON,@TENMON,@GHICHU)
+END
+go
+
+CREATE PROC SuaMH (@MAMON char(10),@TENMON nvarchar(40),@GHICHU nvarchar(100)) AS
+BEGIN
+	UPDATE dbo.MONHOC SET 
+	TENMON = @TENMON,GHICHU = @GHICHU WHERE MAMON = @MAMON
+END
+go
+ CREATE PROC XoaMH(@MAMON char(10)) AS
+ BEGIN
+		DELETE FROM dbo.MONHOC WHERE MAMON = @MAMON
+ END
+ GO
+-- Lớp Học 
+ 
+CREATE PROC ThemLH(@MALOP VARCHAR(10),@TENLOP VARCHAR(15)) AS
+BEGIN
+	 INSERT INTO dbo.LOP
+	         ( MALOP, TENLOP )
+	 VALUES  (@MALOP,@TENLOP ) 
+END
+go
+
+CREATE PROC SuaLH (@MALOP VARCHAR(10),@TENLOP VARCHAR(15)) AS
+BEGIN
+	UPDATE dbo.LOP SET 
+	TENLOP = @TENLOP WHERE MALOP = @MALOP
+END
+go
+  

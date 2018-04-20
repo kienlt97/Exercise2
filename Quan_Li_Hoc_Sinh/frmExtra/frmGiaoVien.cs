@@ -43,7 +43,7 @@ namespace Quan_Li_Hoc_Sinh
 				ListViewItem liv = new ListViewItem(magv);
 				liv.SubItems.Add(reader.GetString(1));
 				liv.SubItems.Add(reader.GetString(2));
-				liv.SubItems.Add(reader.GetString(3));
+				liv.SubItems.Add(malop);
 				liv.SubItems.Add(reader.GetString(4));
 
 				lst.Add(magv);
@@ -246,10 +246,12 @@ namespace Quan_Li_Hoc_Sinh
 			btnSua.Enabled = false;
 			btnXoa.Enabled = false;
 			txtmagv.Enabled = true;
-			txtmagv.Clear();
-			txttenGV.Clear();
-			txtthongtin.Clear();
+			txtmagv.ResetText();
+			txttenGV.ResetText();
+			txtthongtin.ResetText();
+			cbMalop.Refresh();
 			cbMalop.ResetText();
+			cblopgiangday.Refresh();
 			cblopgiangday.ResetText();
 		}
 

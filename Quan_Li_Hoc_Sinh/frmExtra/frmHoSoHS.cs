@@ -92,7 +92,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 
         private void btnXoahs_Click(object sender, EventArgs e)
         {
-            kths = 4;
+            kths = 1;
             if (lvHS.SelectedItems != null)
             {
                 for (int i = 0; i < lvHS.Items.Count; i++)

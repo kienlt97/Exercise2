@@ -21,7 +21,9 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 		private void Luu_Click(object sender, EventArgs e)
 		{
 			int x = fgv.index();
-		//	x = frmhs.kt();
+			int y = frmhs.kt();
+			int z = frmLop.index();
+			// giáo viên
 			switch (x)
 			{
 				case 1:
@@ -36,7 +38,36 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 					fgv.DeleteGV_Database();
 					MessageBox.Show("Đã xóa!");
 					break;
+				
+			}
+			// lớp học và môn học
+			switch (z)
+			{
+				case 1:
+					frmLop.AddLH_Database();
+					MessageBox.Show("Đã thêm thành công!");
+					break;
+				case 2:
+					frmLop.repairLH_Database();
+					MessageBox.Show("Đã sửa thành công!");
+					break;
 				case 4:
+					frmLop.AddMH_Database();
+					MessageBox.Show("Đã thêm thành công!");
+					break;
+				case 5:
+					frmLop.repairMH_Database();
+					MessageBox.Show("Đã sửa thành công!");
+					break;
+				case 6:
+					frmLop.DeleteMH_Database();
+					MessageBox.Show("Đã xóa!");
+					break;
+			}
+
+			switch (y)
+			{
+				case 1:
 					frmhs.DeleteHS_Database();
 					MessageBox.Show("Đã xóa!");
 					break;
