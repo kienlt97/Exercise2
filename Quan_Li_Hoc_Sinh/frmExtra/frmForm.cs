@@ -68,10 +68,18 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 			switch (y)
 			{
 				case 1:
-					frmhs.DeleteHS_Database();
-					MessageBox.Show("Đã xóa!");
+					frmhs.AddHsToDatabase();
+					MessageBox.Show("Đã thêm thành công!");
 					break;
-			}
+                case 2:
+                    frmhs.FixHsToDatabase();
+                    MessageBox.Show("Đã sửa thành công!");
+                    break;
+                case 3:
+                    frmhs.DeleteHS_Database();
+                    MessageBox.Show("Đã xóa!");
+                    break;
+            }
 		}	
 		#endregion
 		#region GiaoVien

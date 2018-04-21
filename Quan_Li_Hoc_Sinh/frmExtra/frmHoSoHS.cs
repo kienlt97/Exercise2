@@ -22,6 +22,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 		private void frmHoSoHS_Load(object sender, EventArgs e)
 		{
 			ShowData();
+            Lop();
 		}
         List<string> lst = new List<string>();
         public void ShowData()
@@ -73,6 +74,25 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
         {
             return kths;
         }
+        public void Lop()
+        {
+            dt.OpenConnection();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from LOP";
+            cmd.Connection = dt.conn;
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            cblop.Items.Clear();
+            while (reader.Read())
+            {
+                string malop = reader.GetString(0);
+                string tenlop = reader.GetString(1);
+
+                cblop.Items.Add(malop + "- " + tenlop);
+            }
+            reader.Close();
+        }
 
         public void DeleteHS_Database()
         {
@@ -92,7 +112,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 
         private void btnXoahs_Click(object sender, EventArgs e)
         {
-            kths = 1;
+            kths = 3;
             if (lvHS.SelectedItems != null)
             {
                 for (int i = 0; i < lvHS.Items.Count; i++)
@@ -110,15 +130,137 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
         {
 
         }
-
+        bool check = true;
         private void btnthemhs_Click(object sender, EventArgs e)
         {
-
+            kths = 1;
+            string mahs = "";
+            foreach (string us in lst)
+            {
+                if (us.Contains(txtmahs.Text))
+                {
+                    MessageBox.Show("Mã học sinh đã tồn tại !");
+                    check = false;
+                    break;
+                }
+                check = true;
+            }
+            if (check == true)
+            {
+                mahs = txtmahs.Text;
+                ListViewItem liv = new ListViewItem(mahs);
+                liv.SubItems.Add(txttenhs.Text);
+                if (rdnam.Checked == true)
+                {
+                    liv.SubItems.Add(rdnam.Text);
+                }
+                else
+                {
+                    liv.SubItems.Add(rdnu.Text);
+                }
+                liv.SubItems.Add(dtNS.Text);
+                liv.SubItems.Add(txtdiachi.Text);
+                liv.SubItems.Add(cblop.Text);
+                liv.SubItems.Add(txtsdt.Text);
+                lvHS.Items.Add(liv);
+            }
         }
 
+        public void AddHsToDatabase()
+        {
+            dt.OpenConnection();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "THEMHS";
+            cmd.Connection = dt.conn;
+
+            cmd.Parameters.Add("@MAHS", SqlDbType.NVarChar).Value = txtmahs.Text;
+            cmd.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = txttenhs.Text;
+            if(rdnam.Checked == true)
+            {
+                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnam.Text;
+            }
+            else
+            {
+                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnu.Text;
+            }
+            cmd.Parameters.Add("@NGAYSINH", SqlDbType.NVarChar).Value = dtNS.Text;
+            cmd.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = txtdiachi.Text;
+            cmd.Parameters.Add("@LOPHOC", SqlDbType.VarChar).Value = malop;
+            cmd.Parameters.Add("@SODIENTHOAI", SqlDbType.NVarChar).Value = txtsdt.Text;
+            int ret = cmd.ExecuteNonQuery();
+            lvHS.Items.Clear();
+            if (ret > 0)
+                ShowData();
+        }
         private void btnSuahs_Click(object sender, EventArgs e)
         {
+            kths = 2;
+            btnthemhs.Enabled = true;
+            if (lvHS.SelectedItems.Count == 0) return;
+            ListViewItem liv = lvHS.SelectedItems[0];
+            liv.SubItems[0].Text = txtmahs.Text;
+            liv.SubItems[1].Text = txttenhs.Text;
+            if (rdnam.Checked == true)
+            {
+                liv.SubItems[2].Text = rdnam.Text;
+            }
+            else
+            {
+                liv.SubItems[2].Text = rdnu.Text;
+            }
+            liv.SubItems[3].Text = dtNS.Text;
+            liv.SubItems[4].Text = txtdiachi.Text;
+            liv.SubItems[5].Text = cblop.Text;
+            liv.SubItems[6].Text = txtsdt.Text;
+        }
+        public void FixHsToDatabase()
+        {
+            dt.OpenConnection();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "SUAHS";
+            cmd.Connection = dt.conn;
 
+            cmd.Parameters.Add("@MAHS", SqlDbType.NVarChar).Value = txtmahs.Text;
+            cmd.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = txttenhs.Text;
+            if (rdnam.Checked == true)
+            {
+                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnam.Text;
+            }
+            else
+            {
+                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnu.Text;
+            }
+            cmd.Parameters.Add("@NGAYSINH", SqlDbType.NVarChar).Value = dtNS.Text;
+            cmd.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = txtdiachi.Text;
+            cmd.Parameters.Add("@LOPHOC", SqlDbType.VarChar).Value = cblop.Text;
+            cmd.Parameters.Add("@SODIENTHOAI", SqlDbType.NVarChar).Value = txtsdt.Text;
+            int ret = cmd.ExecuteNonQuery();
+            lvHS.Items.Clear();
+            if (ret > 0)
+                ShowData();
+        }
+        string malop = "";
+        private void cblop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string valuePM = cblop.SelectedItem.ToString();
+            string[] arrPM1 = valuePM.Split('-');
+            malop = arrPM1[0];
+        }
+
+        private void btnReseths_Click(object sender, EventArgs e)
+        {
+            btnthemhs.Enabled = true;
+            btnSuahs.Enabled = false;
+            btnXoahs.Enabled = false;
+            txtmahs.Enabled = true;
+            txtmahs.ResetText();
+            txttenhs.ResetText();
+            dtNS.ResetText();
+            txtdiachi.Refresh();
+            cblop.ResetText();
+            txtsdt.Refresh();
         }
     }
 }
