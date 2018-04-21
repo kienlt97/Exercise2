@@ -42,8 +42,9 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 				liv.SubItems.Add(reader.GetString(1));
 				liv.SubItems.Add(reader.GetString(2));
                 liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
-                liv.SubItems.Add(reader.GetString(4));
-				liv.SubItems.Add(reader.GetString(8));
+                liv.SubItems.Add(reader.GetString(4));              
+                liv.SubItems.Add(reader.GetString(8));
+                liv.SubItems.Add(reader.GetString(5));
                 lst.Add(mahs);
 				lvHS.Items.Add(liv);
 			}
@@ -61,11 +62,21 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             ListViewItem liv = lvHS.SelectedItems[0];
             txtmahs.Text = liv.SubItems[0].Text;
             txttenhs.Text = liv.SubItems[1].Text;
-            rdnam.Text = liv.SubItems[2].Text;
-            rdnu.Text = liv.SubItems[2].Text;
-            dtNS.Text = liv.SubItems[3].Text;
+            if(rdnam.Text == liv.SubItems[2].Text)
+            {
+
+                rdnam.Checked = true;
+            }
+            else
+            {
+                rdnu.Checked = true;
+            }
+            
+            
+            dtNS.Value = DateTime.Parse(liv.SubItems[3].Text);
             txtdiachi.Text = liv.SubItems[4].Text;
             cblop.Text = liv.SubItems[5].Text;
+            txtsdt.Text = liv.SubItems[6].Text;
         }
 
 
@@ -163,6 +174,8 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
                 liv.SubItems.Add(cblop.Text);
                 liv.SubItems.Add(txtsdt.Text);
                 lvHS.Items.Add(liv);
+
+                AddHsToDatabase();
             }
         }
 
@@ -184,10 +197,10 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             {
                 cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnu.Text;
             }
-            cmd.Parameters.Add("@NGAYSINH", SqlDbType.NVarChar).Value = dtNS.Text;
+            cmd.Parameters.Add("@NGAYSINH", SqlDbType.Date).Value = dtNS.Value;
             cmd.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = txtdiachi.Text;
             cmd.Parameters.Add("@LOPHOC", SqlDbType.VarChar).Value = malop;
-            cmd.Parameters.Add("@SODIENTHOAI", SqlDbType.NVarChar).Value = txtsdt.Text;
+            cmd.Parameters.Add("@SODIENTHOAI", SqlDbType.VarChar).Value = txtsdt.Text;
             int ret = cmd.ExecuteNonQuery();
             lvHS.Items.Clear();
             if (ret > 0)
@@ -204,9 +217,11 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             if (rdnam.Checked == true)
             {
                 liv.SubItems[2].Text = rdnam.Text;
+                liv.SubItems[2].Text = rdnu.Text;
             }
             else
             {
+                liv.SubItems[2].Text = rdnam.Text;
                 liv.SubItems[2].Text = rdnu.Text;
             }
             liv.SubItems[3].Text = dtNS.Text;
@@ -232,10 +247,10 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             {
                 cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnu.Text;
             }
-            cmd.Parameters.Add("@NGAYSINH", SqlDbType.NVarChar).Value = dtNS.Text;
+            cmd.Parameters.Add("@NGAYSINH", SqlDbType.Date).Value = dtNS.Value;
             cmd.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = txtdiachi.Text;
             cmd.Parameters.Add("@LOPHOC", SqlDbType.VarChar).Value = cblop.Text;
-            cmd.Parameters.Add("@SODIENTHOAI", SqlDbType.NVarChar).Value = txtsdt.Text;
+            cmd.Parameters.Add("@SODIENTHOAI", SqlDbType.VarChar).Value = txtsdt.Text;
             int ret = cmd.ExecuteNonQuery();
             lvHS.Items.Clear();
             if (ret > 0)
@@ -258,9 +273,14 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             txtmahs.ResetText();
             txttenhs.ResetText();
             dtNS.ResetText();
-            txtdiachi.Refresh();
+            txtdiachi.ResetText();
             cblop.ResetText();
-            txtsdt.Refresh();
+            txtsdt.ResetText();
+        }
+
+        private void dtNS_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

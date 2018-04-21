@@ -227,13 +227,14 @@
             // 
             this.dtNS.Cursor = System.Windows.Forms.Cursors.Default;
             this.dtNS.CustomFormat = "dd/MM/yyyy";
-            this.dtNS.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNS.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtNS.Location = new System.Drawing.Point(22, 229);
             this.dtNS.Margin = new System.Windows.Forms.Padding(4);
             this.dtNS.Name = "dtNS";
             this.dtNS.Size = new System.Drawing.Size(220, 22);
             this.dtNS.TabIndex = 49;
             this.dtNS.Value = new System.DateTime(2018, 4, 21, 0, 0, 0, 0);
+            this.dtNS.ValueChanged += new System.EventHandler(this.dtNS_ValueChanged);
             // 
             // label6
             // 
