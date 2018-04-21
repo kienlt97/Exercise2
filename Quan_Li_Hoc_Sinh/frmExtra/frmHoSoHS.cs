@@ -62,17 +62,17 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             ListViewItem liv = lvHS.SelectedItems[0];
             txtmahs.Text = liv.SubItems[0].Text;
             txttenhs.Text = liv.SubItems[1].Text;
-            if(rdnam.Text == liv.SubItems[2].Text)
+            if(rdnam.Text.ToLower() == liv.SubItems[2].Text.ToLower())
             {
-
                 rdnam.Checked = true;
+                rdnu.Checked = false;
             }
             else
             {
                 rdnu.Checked = true;
+                rdnam.Checked = false;
             }
-            
-            
+                       
             dtNS.Value = DateTime.Parse(liv.SubItems[3].Text);
             txtdiachi.Text = liv.SubItems[4].Text;
             cblop.Text = liv.SubItems[5].Text;
@@ -281,6 +281,36 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
         private void dtNS_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtTimKiemhs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTimKiemhs_Click(object sender, EventArgs e)
+        {
+            string sr = txtTimKiemhs.Text;
+            dt.OpenConnection();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from HOSOHOCSINH Where MAHS like '%" + sr + "%'";
+            cmd.Connection = dt.conn;
+            SqlDataReader reader = cmd.ExecuteReader();
+            lvHS.Items.Clear();
+            while (reader.Read())
+            {
+                ListViewItem liv = new ListViewItem(reader.GetString(0));
+                liv.SubItems.Add(reader.GetString(1));
+                liv.SubItems.Add(reader.GetString(2));
+                liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
+                liv.SubItems.Add(reader.GetString(4));
+                liv.SubItems.Add(reader.GetString(8));
+                liv.SubItems.Add(reader.GetString(5));
+     
+                lvHS.Items.Add(liv);
+            }
+            reader.Close();
         }
     }
 }

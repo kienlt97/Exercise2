@@ -324,6 +324,7 @@
             this.txtTimKiemhs.Size = new System.Drawing.Size(188, 23);
             this.txtTimKiemhs.TabIndex = 36;
             this.txtTimKiemhs.UseWaitCursor = true;
+            this.txtTimKiemhs.TextChanged += new System.EventHandler(this.txtTimKiemhs_TextChanged);
             // 
             // btnTimKiemhs
             // 
@@ -335,6 +336,7 @@
             this.btnTimKiemhs.TabIndex = 35;
             this.btnTimKiemhs.Text = "Tìm Kiếm";
             this.btnTimKiemhs.UseVisualStyleBackColor = true;
+            this.btnTimKiemhs.Click += new System.EventHandler(this.btnTimKiemhs_Click);
             // 
             // btnXoahs
             // 

@@ -270,6 +270,11 @@ namespace Quan_Li_Hoc_Sinh
 				}
 			}
 		}
-		#endregion
-	}
+        #endregion
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

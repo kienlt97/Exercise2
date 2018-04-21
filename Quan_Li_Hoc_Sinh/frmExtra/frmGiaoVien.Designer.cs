@@ -63,7 +63,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -98,16 +98,17 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lvGV);
-            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.groupBox1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(869, 453);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Giáo Viên";
+            this.groupBox1.UseWaitCursor = true;
             // 
             // lvGV
             // 
@@ -117,17 +118,18 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-            this.lvGV.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lvGV.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.lvGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvGV.FullRowSelect = true;
             this.lvGV.GridLines = true;
             this.lvGV.HideSelection = false;
             this.lvGV.Location = new System.Drawing.Point(4, 19);
-            this.lvGV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvGV.Margin = new System.Windows.Forms.Padding(4);
             this.lvGV.Name = "lvGV";
             this.lvGV.Size = new System.Drawing.Size(861, 430);
             this.lvGV.TabIndex = 2;
             this.lvGV.UseCompatibleStateImageBehavior = false;
+            this.lvGV.UseWaitCursor = true;
             this.lvGV.View = System.Windows.Forms.View.Details;
             this.lvGV.SelectedIndexChanged += new System.EventHandler(this.lvGV_SelectedIndexChanged);
             // 
@@ -165,7 +167,7 @@
             this.cblopgiangday.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cblopgiangday.FormattingEnabled = true;
             this.cblopgiangday.Location = new System.Drawing.Point(524, 89);
-            this.cblopgiangday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cblopgiangday.Margin = new System.Windows.Forms.Padding(4);
             this.cblopgiangday.Name = "cblopgiangday";
             this.cblopgiangday.Size = new System.Drawing.Size(197, 24);
             this.cblopgiangday.TabIndex = 40;
@@ -187,7 +189,7 @@
             // 
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReset.Location = new System.Drawing.Point(489, 138);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(100, 28);
             this.btnReset.TabIndex = 38;
@@ -200,7 +202,7 @@
             this.cbMalop.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cbMalop.FormattingEnabled = true;
             this.cbMalop.Location = new System.Drawing.Point(289, 89);
-            this.cbMalop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbMalop.Margin = new System.Windows.Forms.Padding(4);
             this.cbMalop.Name = "cbMalop";
             this.cbMalop.Size = new System.Drawing.Size(197, 24);
             this.cbMalop.TabIndex = 37;
@@ -210,17 +212,18 @@
             // 
             this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimKiem.Location = new System.Drawing.Point(524, 28);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(197, 23);
             this.txtTimKiem.TabIndex = 36;
             this.txtTimKiem.UseWaitCursor = true;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // btnTimKiem
             // 
             this.btnTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTimKiem.Location = new System.Drawing.Point(752, 26);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(100, 28);
             this.btnTimKiem.TabIndex = 35;
@@ -232,7 +235,7 @@
             // 
             this.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXoa.Location = new System.Drawing.Point(335, 138);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 28);
             this.btnXoa.TabIndex = 34;
@@ -244,7 +247,7 @@
             // 
             this.btnSua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSua.Location = new System.Drawing.Point(180, 138);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(100, 28);
             this.btnSua.TabIndex = 33;
@@ -256,7 +259,7 @@
             // 
             this.btnthem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnthem.Location = new System.Drawing.Point(33, 138);
-            this.btnthem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnthem.Margin = new System.Windows.Forms.Padding(4);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(100, 28);
             this.btnthem.TabIndex = 32;
@@ -317,7 +320,7 @@
             this.txtthongtin.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtthongtin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtthongtin.Location = new System.Drawing.Point(289, 30);
-            this.txtthongtin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtthongtin.Margin = new System.Windows.Forms.Padding(4);
             this.txtthongtin.Name = "txtthongtin";
             this.txtthongtin.Size = new System.Drawing.Size(197, 23);
             this.txtthongtin.TabIndex = 26;
@@ -327,7 +330,7 @@
             this.txttenGV.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txttenGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttenGV.Location = new System.Drawing.Point(33, 89);
-            this.txttenGV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txttenGV.Margin = new System.Windows.Forms.Padding(4);
             this.txttenGV.Name = "txttenGV";
             this.txttenGV.Size = new System.Drawing.Size(197, 23);
             this.txttenGV.TabIndex = 25;
@@ -337,7 +340,7 @@
             this.txtmagv.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtmagv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmagv.Location = new System.Drawing.Point(33, 30);
-            this.txtmagv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtmagv.Margin = new System.Windows.Forms.Padding(4);
             this.txtmagv.Name = "txtmagv";
             this.txtmagv.Size = new System.Drawing.Size(197, 23);
             this.txtmagv.TabIndex = 24;
@@ -349,7 +352,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmGiaoVien";
             this.Size = new System.Drawing.Size(869, 673);
             this.Load += new System.EventHandler(this.fixGiaoVien_Load);
