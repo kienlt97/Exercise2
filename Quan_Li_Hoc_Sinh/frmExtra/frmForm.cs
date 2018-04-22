@@ -16,6 +16,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 		{
 			InitializeComponent();
 		}
+
 		frmGiaoVien fgv = new frmGiaoVien();
 		#region Save_DataBase
 		private void Luu_Click(object sender, EventArgs e)
@@ -125,5 +126,21 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 		{
 			pnMainGV.Controls.Clear();
 		}
-	}
+
+        private void đôiMâtKhâuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+        public void đăngXuâtToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            Form tmp = this.FindForm();
+            tmp.Hide();
+            frmMain f = new frmMain();
+            f.ShowDialog();
+            tmp.Dispose();
+            this.Show();
+        }
+    }
 }
