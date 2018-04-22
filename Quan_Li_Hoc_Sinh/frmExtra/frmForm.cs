@@ -18,14 +18,16 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 		}
 
 		frmGiaoVien fgv = new frmGiaoVien();
-		#region Save_DataBase
-		private void Luu_Click(object sender, EventArgs e)
+        frmBangDiem fbd = new frmBangDiem();
+        #region Save_DataBase
+        private void Luu_Click(object sender, EventArgs e)
 		{
 			int x = fgv.index();
 			int y = frmhs.kt();
 			int z = frmLop.index();
-			// giáo viên
-			switch (x)
+            int w = fbd.index();
+            // giáo viên
+            switch (x)
 			{
 				case 1:
 					fgv.AddGV_Database();
@@ -81,7 +83,26 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
                     MessageBox.Show("Đã xóa!");
                     break;
             }
-		}	
+            //bảng điểm
+            switch (w)
+            {
+                case 0:
+                    MessageBox.Show("lỗi");
+                    break;
+                case 1:
+                    fbd.AddBD_Database();
+                    MessageBox.Show("Đã thêm thành công!");
+                    break;
+                case 2:
+                    fbd.repairBD_Database();
+                    MessageBox.Show("Đã sửa thành công");
+                    break;
+                case 3:
+                    fbd.DeleteBD_Database();
+                    MessageBox.Show("Đã xóa thành công");
+                    break;
+            }
+        }	
 		#endregion
 		#region GiaoVien
 		
@@ -141,6 +162,13 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             f.ShowDialog();
             tmp.Dispose();
             this.Show();
+        }
+        frmHelp frmh = new frmHelp();
+        private void trơGiupToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            pnMainGV.Controls.Clear();
+            frmh.Dock = DockStyle.Fill;
+            pnMainGV.Controls.Add(frmh);
         }
     }
 }

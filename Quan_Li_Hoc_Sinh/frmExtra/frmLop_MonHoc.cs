@@ -35,7 +35,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 				dt.OpenConnection();
 				SqlCommand cmd = new SqlCommand();
 				cmd.CommandType = CommandType.Text;
-				cmd.CommandText = "SELECT *FROM dbo.MonHoc";
+				cmd.CommandText = "SELECT *FROM MONHOC";
 				cmd.Connection = dt.conn;
 
 				SqlDataReader reader = cmd.ExecuteReader();
