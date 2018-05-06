@@ -69,7 +69,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -111,9 +111,9 @@
             this.groupBox1.Controls.Add(this.lvDB);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(869, 392);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -135,13 +135,14 @@
             this.lvDB.GridLines = true;
             this.lvDB.HideSelection = false;
             this.lvDB.Location = new System.Drawing.Point(4, 19);
-            this.lvDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvDB.Margin = new System.Windows.Forms.Padding(4);
             this.lvDB.Name = "lvDB";
             this.lvDB.Size = new System.Drawing.Size(861, 369);
             this.lvDB.TabIndex = 2;
             this.lvDB.UseCompatibleStateImageBehavior = false;
             this.lvDB.UseWaitCursor = true;
             this.lvDB.View = System.Windows.Forms.View.Details;
+            this.lvDB.SelectedIndexChanged += new System.EventHandler(this.lvDB_SelectedIndexChanged);
             // 
             // columnHeader10
             // 
@@ -188,7 +189,7 @@
             // 
             this.cbmamon.FormattingEnabled = true;
             this.cbmamon.Location = new System.Drawing.Point(33, 91);
-            this.cbmamon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbmamon.Margin = new System.Windows.Forms.Padding(4);
             this.cbmamon.Name = "cbmamon";
             this.cbmamon.Size = new System.Drawing.Size(197, 24);
             this.cbmamon.TabIndex = 49;
@@ -211,7 +212,7 @@
             // 
             this.txtdiemhk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdiemhk.Location = new System.Drawing.Point(524, 92);
-            this.txtdiemhk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtdiemhk.Margin = new System.Windows.Forms.Padding(4);
             this.txtdiemhk.Name = "txtdiemhk";
             this.txtdiemhk.Size = new System.Drawing.Size(197, 23);
             this.txtdiemhk.TabIndex = 46;
@@ -245,7 +246,7 @@
             // 
             this.txt15p.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt15p.Location = new System.Drawing.Point(289, 91);
-            this.txt15p.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt15p.Margin = new System.Windows.Forms.Padding(4);
             this.txt15p.Name = "txt15p";
             this.txt15p.Size = new System.Drawing.Size(197, 23);
             this.txt15p.TabIndex = 42;
@@ -255,7 +256,7 @@
             // 
             this.txthocky.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txthocky.Location = new System.Drawing.Point(33, 139);
-            this.txthocky.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txthocky.Margin = new System.Windows.Forms.Padding(4);
             this.txthocky.Name = "txthocky";
             this.txthocky.Size = new System.Drawing.Size(197, 23);
             this.txthocky.TabIndex = 41;
@@ -264,7 +265,7 @@
             // btnResetd
             // 
             this.btnResetd.Location = new System.Drawing.Point(675, 224);
-            this.btnResetd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResetd.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetd.Name = "btnResetd";
             this.btnResetd.Size = new System.Drawing.Size(153, 28);
             this.btnResetd.TabIndex = 38;
@@ -277,7 +278,7 @@
             // 
             this.cbmahs.FormattingEnabled = true;
             this.cbmahs.Location = new System.Drawing.Point(33, 33);
-            this.cbmahs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbmahs.Margin = new System.Windows.Forms.Padding(4);
             this.cbmahs.Name = "cbmahs";
             this.cbmahs.Size = new System.Drawing.Size(197, 24);
             this.cbmahs.TabIndex = 37;
@@ -288,7 +289,7 @@
             // 
             this.txtTimKiemd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTimKiemd.Location = new System.Drawing.Point(524, 28);
-            this.txtTimKiemd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTimKiemd.Margin = new System.Windows.Forms.Padding(4);
             this.txtTimKiemd.Name = "txtTimKiemd";
             this.txtTimKiemd.Size = new System.Drawing.Size(211, 23);
             this.txtTimKiemd.TabIndex = 36;
@@ -297,7 +298,7 @@
             // btnTimKiemd
             // 
             this.btnTimKiemd.Location = new System.Drawing.Point(744, 26);
-            this.btnTimKiemd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimKiemd.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimKiemd.Name = "btnTimKiemd";
             this.btnTimKiemd.Size = new System.Drawing.Size(100, 28);
             this.btnTimKiemd.TabIndex = 35;
@@ -309,7 +310,7 @@
             // btnXoad
             // 
             this.btnXoad.Location = new System.Drawing.Point(443, 224);
-            this.btnXoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoad.Name = "btnXoad";
             this.btnXoad.Size = new System.Drawing.Size(153, 28);
             this.btnXoad.TabIndex = 34;
@@ -321,7 +322,7 @@
             // btnSuad
             // 
             this.btnSuad.Location = new System.Drawing.Point(236, 224);
-            this.btnSuad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSuad.Margin = new System.Windows.Forms.Padding(4);
             this.btnSuad.Name = "btnSuad";
             this.btnSuad.Size = new System.Drawing.Size(153, 28);
             this.btnSuad.TabIndex = 33;
@@ -333,7 +334,7 @@
             // btnthemd
             // 
             this.btnthemd.Location = new System.Drawing.Point(23, 224);
-            this.btnthemd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnthemd.Margin = new System.Windows.Forms.Padding(4);
             this.btnthemd.Name = "btnthemd";
             this.btnthemd.Size = new System.Drawing.Size(153, 28);
             this.btnthemd.TabIndex = 32;
@@ -394,7 +395,7 @@
             // 
             this.txtdiemmieng.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdiemmieng.Location = new System.Drawing.Point(289, 34);
-            this.txtdiemmieng.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtdiemmieng.Margin = new System.Windows.Forms.Padding(4);
             this.txtdiemmieng.Name = "txtdiemmieng";
             this.txtdiemmieng.Size = new System.Drawing.Size(197, 23);
             this.txtdiemmieng.TabIndex = 25;
@@ -404,7 +405,7 @@
             // 
             this.txt1tiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt1tiet.Location = new System.Drawing.Point(289, 139);
-            this.txt1tiet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt1tiet.Margin = new System.Windows.Forms.Padding(4);
             this.txt1tiet.Name = "txt1tiet";
             this.txt1tiet.Size = new System.Drawing.Size(197, 23);
             this.txt1tiet.TabIndex = 24;
@@ -416,7 +417,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmBangDiem";
             this.Size = new System.Drawing.Size(869, 673);
             this.Load += new System.EventHandler(this.frmBangDiem_Load);
@@ -462,5 +463,5 @@
 		private System.Windows.Forms.TextBox txt1tiet;
 		private System.Windows.Forms.ColumnHeader columnHeader1;
 		private System.Windows.Forms.ComboBox cbmamon;
-	}
+    }
 }

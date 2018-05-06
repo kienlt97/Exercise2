@@ -18,14 +18,14 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 		}
 
 		frmGiaoVien fgv = new frmGiaoVien();
-        frmBangDiem fbd = new frmBangDiem();
+        
         #region Save_DataBase
         private void Luu_Click(object sender, EventArgs e)
 		{
 			int x = fgv.index();
 			int y = frmhs.kt();
 			int z = frmLop.index();
-            int w = fbd.index();
+            int w = frmbd.idx();
             // giáo viên
             switch (x)
 			{
@@ -86,19 +86,16 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             //bảng điểm
             switch (w)
             {
-                case 0:
-                    MessageBox.Show("lỗi");
-                    break;
-                case 1:
-                    fbd.AddBD_Database();
+                 case 1:
+                    frmbd.AddBD_Database();
                     MessageBox.Show("Đã thêm thành công!");
                     break;
                 case 2:
-                    fbd.repairBD_Database();
+                    frmbd.repairBD_Database();
                     MessageBox.Show("Đã sửa thành công");
                     break;
                 case 3:
-                    fbd.DeleteBD_Database();
+                    frmbd.DeleteBD_Database();
                     MessageBox.Show("Đã xóa thành công");
                     break;
             }

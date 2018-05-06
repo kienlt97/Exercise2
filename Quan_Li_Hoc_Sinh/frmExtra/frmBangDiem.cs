@@ -91,9 +91,10 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
         #endregion
 
         #region SelectedListview
-        private void lvBD_SelectedIndexChanged(object sender, EventArgs e)
+        private void lvDB_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbmahs.Enabled = false;
+            cbmamon.Enabled = false;
             btnthemd.Enabled = false;
             btnXoad.Enabled = true;
             btnSuad.Enabled = true;
@@ -135,10 +136,10 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             cmd.Parameters.Add("@MAHS", SqlDbType.NVarChar).Value = mahs;
             cmd.Parameters.Add("@MAMON", SqlDbType.NVarChar).Value = mamon;
             cmd.Parameters.Add("@HOCKY", SqlDbType.NVarChar).Value = txthocky.Text;
-            cmd.Parameters.Add("@DIEMMIENG", SqlDbType.NVarChar).Value = txtdiemmieng.Text;
-            cmd.Parameters.Add("@DIEM15P", SqlDbType.NVarChar).Value = txt15p.Text;
-            cmd.Parameters.Add("@DIEM1TIET", SqlDbType.NVarChar).Value = txt1tiet.Text;
-            cmd.Parameters.Add("@DIEMHOCKY", SqlDbType.NVarChar).Value = txtdiemhk.Text;
+            cmd.Parameters.Add("@DIEMMIENG", SqlDbType.Float).Value =Convert.ToDouble( txtdiemmieng.Text);
+            cmd.Parameters.Add("@DIEM15P", SqlDbType.Float).Value = Convert.ToDouble(txt15p.Text);
+            cmd.Parameters.Add("@DIEM1TIET", SqlDbType.Float).Value = Convert.ToDouble(txt1tiet.Text);
+            cmd.Parameters.Add("@DIEMHOCKY", SqlDbType.Float).Value = Convert.ToDouble(txtdiemhk.Text);
             int ret = cmd.ExecuteNonQuery();
             lvDB.Items.Clear();
             if (ret > 0)
@@ -152,13 +153,13 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "SuaBD";
             cmd.Connection = dt.conn;
-            cmd.Parameters.Add("@MAHS", SqlDbType.NVarChar).Value = mahs;
-            cmd.Parameters.Add("@MAMON", SqlDbType.NVarChar).Value = mamon;
+            cmd.Parameters.Add("@MAHS", SqlDbType.NVarChar).Value = cbmahs.Text;
+            cmd.Parameters.Add("@MAMON", SqlDbType.NVarChar).Value = cbmamon.Text;
             cmd.Parameters.Add("@HOCKY", SqlDbType.NVarChar).Value = txthocky.Text;
-            cmd.Parameters.Add("@DIEMMIENG", SqlDbType.NVarChar).Value = txtdiemmieng.Text;
-            cmd.Parameters.Add("@DIEM15P", SqlDbType.NVarChar).Value = txt15p.Text;
-            cmd.Parameters.Add("@DIEM1TIET", SqlDbType.NVarChar).Value = txt1tiet.Text;
-            cmd.Parameters.Add("@DIEMHOCKY", SqlDbType.NVarChar).Value = txtdiemhk.Text;
+            cmd.Parameters.Add("@DIEMMIENG", SqlDbType.Float).Value = Convert.ToDouble(txtdiemmieng.Text);
+            cmd.Parameters.Add("@DIEM15P", SqlDbType.Float).Value = Convert.ToDouble(txt15p.Text);
+            cmd.Parameters.Add("@DIEM1TIET", SqlDbType.Float).Value = Convert.ToDouble(txt1tiet.Text);
+            cmd.Parameters.Add("@DIEMHOCKY", SqlDbType.Float).Value = Convert.ToDouble(txtdiemhk.Text);
             int ret = cmd.ExecuteNonQuery();
             lvDB.Items.Clear();
             if (ret > 0)
@@ -172,11 +173,12 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             dt.OpenConnection();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "XoaBD";
+             cmd.CommandText = "XoaBD";
+          //  cmd.CommandText = "DELETE FROM dbo.BANGDIEM WHERE MAMON ="+ cbmamon.Text + " AND MAHS="+ cbmahs.Text;
             cmd.Connection = dt.conn;
 
-            cmd.Parameters.Add("@MAHS", SqlDbType.NVarChar).Value = mahs;
-            cmd.Parameters.Add("@MAMON", SqlDbType.NVarChar).Value = mamon;
+            cmd.Parameters.Add("@MAHS", SqlDbType.NVarChar).Value = cbmahs.Text;
+            cmd.Parameters.Add("@MAMON", SqlDbType.NVarChar).Value = cbmamon.Text;
 
             int ret = cmd.ExecuteNonQuery();
             lvDB.Items.Clear();
@@ -186,36 +188,36 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 
         #endregion
 
-
-
         #region Control
 
-        public int kt = 0;
-        public int index()
+        public int ktbd ;
+        public int idx()
         {
-            return kt;
+            return ktbd;
         }
-        bool check = true;
+        
         private void btnthemd_Click(object sender, EventArgs e)
-        {
-            kt = 1;
-
-
-            ListViewItem liv = new ListViewItem(mahs);
-            liv.SubItems.Add(mamon);
-            liv.SubItems.Add(txthocky.Text);
-            liv.SubItems.Add(txtdiemmieng.Text);
-            liv.SubItems.Add(txt15p.Text);
-            liv.SubItems.Add(txt1tiet.Text);
-            liv.SubItems.Add(txtdiemhk.Text);
-            lvDB.Items.Add(liv);
-
-
+        {            
+            bool check = true;
+            ktbd = 1;
+            if (check == true)
+                {
+                ListViewItem liv = new ListViewItem(mahs);
+                liv.SubItems.Add(mamon);
+                liv.SubItems.Add(txthocky.Text);
+                liv.SubItems.Add(txtdiemmieng.Text);
+                liv.SubItems.Add(txt15p.Text);
+                liv.SubItems.Add(txt1tiet.Text);
+                liv.SubItems.Add(txtdiemhk.Text);
+                lvDB.Items.Add(liv);
+                
+                }
         }
+    
 
         private void btnSuad_Click(object sender, EventArgs e)
         {
-            kt = 2;
+            ktbd = 2;
             btnthemd.Enabled = true;
             if (lvDB.SelectedItems.Count == 0) return;
             ListViewItem liv = lvDB.SelectedItems[0];
@@ -226,12 +228,13 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             liv.SubItems[4].Text = txt15p.Text;
             liv.SubItems[5].Text = txt1tiet.Text;
             liv.SubItems[6].Text = txtdiemhk.Text;
-
+            
+            
         }
 
         private void btnXoad_Click(object sender, EventArgs e)
         {
-            kt = 3;
+            ktbd = 3;
             if (lvDB.SelectedItems != null)
             {
                 for (int i = 0; i < lvDB.Items.Count; i++)
@@ -243,6 +246,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
                     }
                 }
             }
+            
         }
 
         private void btnTimKiemd_Click(object sender, EventArgs e)
@@ -274,6 +278,8 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             btnthemd.Enabled = true;
             btnSuad.Enabled = false;
             btnXoad.Enabled = false;
+            cbmahs.Enabled = true;
+            cbmamon.Enabled = true;
             cbmahs.Refresh();
             cbmahs.ResetText();
             cbmamon.Refresh();
@@ -286,5 +292,6 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 
         }
         #endregion
+
     }
 }

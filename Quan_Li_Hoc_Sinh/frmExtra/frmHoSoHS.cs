@@ -41,7 +41,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
                 ListViewItem liv = new ListViewItem(reader.GetString(0));
 				liv.SubItems.Add(reader.GetString(1));
 				liv.SubItems.Add(reader.GetString(2));
-                liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
+                liv.SubItems.Add(reader.GetDateTime(3).ToString());
                 liv.SubItems.Add(reader.GetString(4));              
                 liv.SubItems.Add(reader.GetString(8));
                 liv.SubItems.Add(reader.GetString(5));
@@ -174,8 +174,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
                 liv.SubItems.Add(cblop.Text);
                 liv.SubItems.Add(txtsdt.Text);
                 lvHS.Items.Add(liv);
-
-                AddHsToDatabase();
+               
             }
         }
 
