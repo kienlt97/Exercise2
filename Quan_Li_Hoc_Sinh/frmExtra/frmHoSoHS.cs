@@ -190,11 +190,11 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             cmd.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = txttenhs.Text;
             if(rdnam.Checked == true)
             {
-                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnam.Text;
+                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = "Nam";
             }
             else
             {
-                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnu.Text;
+                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = "Nữ";
             }
             cmd.Parameters.Add("@NGAYSINH", SqlDbType.Date).Value = dtNS.Value;
             cmd.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = txtdiachi.Text;
@@ -240,11 +240,12 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             cmd.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = txttenhs.Text;
             if (rdnam.Checked == true)
             {
-                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnam.Text;
+                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = "Nam";
             }
-            else
+            else if(rdnu.Checked == true)
             {
-                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = rdnu.Text;
+                cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = "Nữ";
+                txtTimKiemhs.Text = rdnu.Text;
             }
             cmd.Parameters.Add("@NGAYSINH", SqlDbType.Date).Value = dtNS.Value;
             cmd.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = txtdiachi.Text;

@@ -46,6 +46,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
                 liv.SubItems.Add(reader.GetDouble(4).ToString());
                 liv.SubItems.Add(reader.GetDouble(5).ToString());
                 liv.SubItems.Add(reader.GetDouble(6).ToString());
+                lst.Add(reader.GetString(0));
                 lvDB.Items.Add(liv);
             }
             reader.Close();
