@@ -193,25 +193,113 @@ namespace Quan_Li_Hoc_Sinh
 
 		private void btnTimKiem_Click(object sender, EventArgs e)
 		{
-			string sr = txtTimKiem.Text;
-			dt.OpenConnection();
-			SqlCommand cmd = new SqlCommand();
-			cmd.CommandType = CommandType.Text;
-			cmd.CommandText = "select * from GIAO_VIEN Where MAGV like '%" + sr + "%'";
-			cmd.Connection = dt.conn;
-			SqlDataReader reader = cmd.ExecuteReader();
-			lvGV.Items.Clear();
-			while (reader.Read())
-			{
-				ListViewItem liv = new ListViewItem(reader.GetString(0));
-				liv.SubItems.Add(reader.GetString(1));
-				liv.SubItems.Add(reader.GetString(2));
-				liv.SubItems.Add(reader.GetString(3));
-				liv.SubItems.Add(reader.GetString(4));
-				lvGV.Items.Add(liv);
-			}
-			reader.Close();
-		}
+            if (cbbTKGV.SelectedIndex == 0)
+            {
+                string sr = txtTimKiemGV.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from GIAO_VIEN Where MAGV like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvGV.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(reader.GetString(3));
+                    liv.SubItems.Add(reader.GetString(4));
+                    lvGV.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTKGV.SelectedIndex == 1)
+            {
+                string sr = txtTimKiemGV.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from GIAO_VIEN Where TENGV like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvGV.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(reader.GetString(3));
+                    liv.SubItems.Add(reader.GetString(4));
+                    lvGV.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTKGV.SelectedIndex == 2)
+            {
+                string sr = txtTimKiemGV.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from GIAO_VIEN Where THONGTIN like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvGV.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(reader.GetString(3));
+                    liv.SubItems.Add(reader.GetString(4));
+                    lvGV.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTKGV.SelectedIndex == 3)
+            {
+                string sr = txtTimKiemGV.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from GIAO_VIEN Where CNLOP like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvGV.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(reader.GetString(3));
+                    liv.SubItems.Add(reader.GetString(4));
+                    lvGV.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTKGV.SelectedIndex == 4)
+            {
+                string sr = txtTimKiemGV.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from GIAO_VIEN Where GDAY like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvGV.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(reader.GetString(3));
+                    liv.SubItems.Add(reader.GetString(4));
+                    lvGV.Items.Add(liv);
+                }
+                reader.Close();
+            }
+           
+        }
 		bool check = true;
 		private void btnthem_Click(object sender, EventArgs e)
 		{
@@ -276,5 +364,7 @@ namespace Quan_Li_Hoc_Sinh
         {
 
         }
+
+      
     }
 }
