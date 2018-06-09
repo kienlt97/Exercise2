@@ -35,6 +35,9 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbbTKLop = new System.Windows.Forms.ComboBox();
+            this.txtTimKiemLop = new System.Windows.Forms.TextBox();
+            this.btnTimKiemLop = new System.Windows.Forms.Button();
             this.btnresetlh = new System.Windows.Forms.Button();
             this.btnsualh = new System.Windows.Forms.Button();
             this.btnthemlh = new System.Windows.Forms.Button();
@@ -49,6 +52,9 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTimKiemMon = new System.Windows.Forms.TextBox();
+            this.cbbTKMon = new System.Windows.Forms.ComboBox();
+            this.btnTimKiemMon = new System.Windows.Forms.Button();
             this.txtghichu = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnresetmh = new System.Windows.Forms.Button();
@@ -59,12 +65,7 @@
             this.txtmamh = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnTimKiemLop = new System.Windows.Forms.Button();
-            this.txtTimKiemLop = new System.Windows.Forms.TextBox();
-            this.cbbTKLop = new System.Windows.Forms.ComboBox();
-            this.btnTimKiemMon = new System.Windows.Forms.Button();
-            this.cbbTKMon = new System.Windows.Forms.ComboBox();
-            this.txtTimKiemMon = new System.Windows.Forms.TextBox();
+            this.btnXoaLop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -161,6 +162,7 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBox3.Controls.Add(this.btnXoaLop);
             this.groupBox3.Controls.Add(this.cbbTKLop);
             this.groupBox3.Controls.Add(this.txtTimKiemLop);
             this.groupBox3.Controls.Add(this.btnTimKiemLop);
@@ -179,9 +181,37 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = " ";
             // 
+            // cbbTKLop
+            // 
+            this.cbbTKLop.FormattingEnabled = true;
+            this.cbbTKLop.Items.AddRange(new object[] {
+            "Theo Mã Lớp Học",
+            "Theo Tên Lớp Học "});
+            this.cbbTKLop.Location = new System.Drawing.Point(125, 126);
+            this.cbbTKLop.Name = "cbbTKLop";
+            this.cbbTKLop.Size = new System.Drawing.Size(140, 21);
+            this.cbbTKLop.TabIndex = 9;
+            // 
+            // txtTimKiemLop
+            // 
+            this.txtTimKiemLop.Location = new System.Drawing.Point(125, 79);
+            this.txtTimKiemLop.Name = "txtTimKiemLop";
+            this.txtTimKiemLop.Size = new System.Drawing.Size(140, 20);
+            this.txtTimKiemLop.TabIndex = 8;
+            // 
+            // btnTimKiemLop
+            // 
+            this.btnTimKiemLop.Location = new System.Drawing.Point(190, 166);
+            this.btnTimKiemLop.Name = "btnTimKiemLop";
+            this.btnTimKiemLop.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiemLop.TabIndex = 7;
+            this.btnTimKiemLop.Text = "Tìm Kiếm";
+            this.btnTimKiemLop.UseVisualStyleBackColor = true;
+            this.btnTimKiemLop.Click += new System.EventHandler(this.btnTimKiemLop_Click);
+            // 
             // btnresetlh
             // 
-            this.btnresetlh.Location = new System.Drawing.Point(19, 166);
+            this.btnresetlh.Location = new System.Drawing.Point(19, 139);
             this.btnresetlh.Name = "btnresetlh";
             this.btnresetlh.Size = new System.Drawing.Size(69, 23);
             this.btnresetlh.TabIndex = 6;
@@ -191,7 +221,7 @@
             // 
             // btnsualh
             // 
-            this.btnsualh.Location = new System.Drawing.Point(16, 125);
+            this.btnsualh.Location = new System.Drawing.Point(16, 108);
             this.btnsualh.Name = "btnsualh";
             this.btnsualh.Size = new System.Drawing.Size(72, 23);
             this.btnsualh.TabIndex = 4;
@@ -330,6 +360,34 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = " ";
             // 
+            // txtTimKiemMon
+            // 
+            this.txtTimKiemMon.Location = new System.Drawing.Point(186, 110);
+            this.txtTimKiemMon.Name = "txtTimKiemMon";
+            this.txtTimKiemMon.Size = new System.Drawing.Size(121, 20);
+            this.txtTimKiemMon.TabIndex = 19;
+            // 
+            // cbbTKMon
+            // 
+            this.cbbTKMon.FormattingEnabled = true;
+            this.cbbTKMon.Items.AddRange(new object[] {
+            "Theo Mã Môn Học ",
+            "Theo Tên Môn Học"});
+            this.cbbTKMon.Location = new System.Drawing.Point(186, 141);
+            this.cbbTKMon.Name = "cbbTKMon";
+            this.cbbTKMon.Size = new System.Drawing.Size(121, 21);
+            this.cbbTKMon.TabIndex = 18;
+            // 
+            // btnTimKiemMon
+            // 
+            this.btnTimKiemMon.Location = new System.Drawing.Point(233, 168);
+            this.btnTimKiemMon.Name = "btnTimKiemMon";
+            this.btnTimKiemMon.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiemMon.TabIndex = 17;
+            this.btnTimKiemMon.Text = "Tìm Kiếm";
+            this.btnTimKiemMon.UseVisualStyleBackColor = true;
+            this.btnTimKiemMon.Click += new System.EventHandler(this.btnTimKiemMon_Click);
+            // 
             // txtghichu
             // 
             this.txtghichu.Location = new System.Drawing.Point(99, 76);
@@ -418,61 +476,15 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Mã Môn Học : ";
             // 
-            // btnTimKiemLop
+            // btnXoaLop
             // 
-            this.btnTimKiemLop.Location = new System.Drawing.Point(190, 166);
-            this.btnTimKiemLop.Name = "btnTimKiemLop";
-            this.btnTimKiemLop.Size = new System.Drawing.Size(75, 23);
-            this.btnTimKiemLop.TabIndex = 7;
-            this.btnTimKiemLop.Text = "Tìm Kiếm";
-            this.btnTimKiemLop.UseVisualStyleBackColor = true;
-            this.btnTimKiemLop.Click += new System.EventHandler(this.btnTimKiemLop_Click);
-            // 
-            // txtTimKiemLop
-            // 
-            this.txtTimKiemLop.Location = new System.Drawing.Point(125, 79);
-            this.txtTimKiemLop.Name = "txtTimKiemLop";
-            this.txtTimKiemLop.Size = new System.Drawing.Size(140, 20);
-            this.txtTimKiemLop.TabIndex = 8;
-            // 
-            // cbbTKLop
-            // 
-            this.cbbTKLop.FormattingEnabled = true;
-            this.cbbTKLop.Items.AddRange(new object[] {
-            "Theo Mã Lớp Học",
-            "Theo Tên Lớp Học "});
-            this.cbbTKLop.Location = new System.Drawing.Point(125, 126);
-            this.cbbTKLop.Name = "cbbTKLop";
-            this.cbbTKLop.Size = new System.Drawing.Size(140, 21);
-            this.cbbTKLop.TabIndex = 9;
-            // 
-            // btnTimKiemMon
-            // 
-            this.btnTimKiemMon.Location = new System.Drawing.Point(233, 168);
-            this.btnTimKiemMon.Name = "btnTimKiemMon";
-            this.btnTimKiemMon.Size = new System.Drawing.Size(75, 23);
-            this.btnTimKiemMon.TabIndex = 17;
-            this.btnTimKiemMon.Text = "Tìm Kiếm";
-            this.btnTimKiemMon.UseVisualStyleBackColor = true;
-            this.btnTimKiemMon.Click += new System.EventHandler(this.btnTimKiemMon_Click);
-            // 
-            // cbbTKMon
-            // 
-            this.cbbTKMon.FormattingEnabled = true;
-            this.cbbTKMon.Items.AddRange(new object[] {
-            "Theo Mã Môn Học ",
-            "Theo Tên Môn Học"});
-            this.cbbTKMon.Location = new System.Drawing.Point(186, 141);
-            this.cbbTKMon.Name = "cbbTKMon";
-            this.cbbTKMon.Size = new System.Drawing.Size(121, 21);
-            this.cbbTKMon.TabIndex = 18;
-            // 
-            // txtTimKiemMon
-            // 
-            this.txtTimKiemMon.Location = new System.Drawing.Point(186, 110);
-            this.txtTimKiemMon.Name = "txtTimKiemMon";
-            this.txtTimKiemMon.Size = new System.Drawing.Size(121, 20);
-            this.txtTimKiemMon.TabIndex = 19;
+            this.btnXoaLop.Location = new System.Drawing.Point(19, 165);
+            this.btnXoaLop.Name = "btnXoaLop";
+            this.btnXoaLop.Size = new System.Drawing.Size(69, 23);
+            this.btnXoaLop.TabIndex = 10;
+            this.btnXoaLop.Text = "Xóa";
+            this.btnXoaLop.UseVisualStyleBackColor = true;
+            this.btnXoaLop.Click += new System.EventHandler(this.btnXoaLop_Click);
             // 
             // frmLop_MonHoc
             // 
@@ -543,5 +555,6 @@
         private System.Windows.Forms.TextBox txtTimKiemMon;
         private System.Windows.Forms.ComboBox cbbTKMon;
         private System.Windows.Forms.Button btnTimKiemMon;
+        private System.Windows.Forms.Button btnXoaLop;
     }
 }

@@ -86,8 +86,23 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 				liv.SubItems[0].Text = txtmalp.Text;
 				liv.SubItems[1].Text = txttenlp.Text;
 		 	}
-			 
-			private void btnresetlh_Click(object sender, EventArgs e)
+
+        private void btnXoaLop_Click(object sender, EventArgs e)
+        {
+            idx = 3;
+            if (lvLopHoc.SelectedItems != null)
+            {
+                for (int i = 0; i < lvLopHoc.Items.Count; i++)
+                {
+                    if (lvLopHoc.Items[i].Selected)
+                    {
+                        lvLopHoc.Items[i].Remove();
+                        i--;
+                    }
+                }
+            }
+        }
+        private void btnresetlh_Click(object sender, EventArgs e)
 			{
 				btnthemlh.Enabled = true;
 				btnsualh.Enabled = false;
@@ -344,5 +359,6 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             }
         }
         #endregion
+
     }
 }
