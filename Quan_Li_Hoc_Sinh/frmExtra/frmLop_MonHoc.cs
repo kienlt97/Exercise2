@@ -253,6 +253,50 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 			if (ret > 0)
 				MonHoc();
 		}
-		#endregion
-	}
+        #endregion
+
+        #region TimKiem_LopHoc
+        private void btnTimKiemLop_Click(object sender, EventArgs e)
+        {
+            if (cbbTKLop.SelectedIndex == 0)
+            {
+                string sr = txtTimKiemLop.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from LOP Where MALOP like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvLopHoc.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    lvLopHoc.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTKLop.SelectedIndex == 1)
+            {
+                string sr = txtTimKiemLop.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from LOP Where TENLOP like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvLopHoc.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    lvLopHoc.Items.Add(liv);
+                }
+                reader.Close();
+            }
+        }
+        #endregion
+    }
 }
