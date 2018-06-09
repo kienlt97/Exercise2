@@ -11,45 +11,45 @@ using System.Data.SqlClient;
 
 namespace Quan_Li_Hoc_Sinh.frmExtra
 {
-	public partial class frmHoSoHS : UserControl
-	{
-		public frmHoSoHS()
-		{
-			InitializeComponent();
-		}
-		DataConnection dt = new DataConnection();
-		#region ShowData
-		private void frmHoSoHS_Load(object sender, EventArgs e)
-		{
-			ShowData();
+    public partial class frmHoSoHS : UserControl
+    {
+        public frmHoSoHS()
+        {
+            InitializeComponent();
+        }
+        DataConnection dt = new DataConnection();
+        #region ShowData
+        private void frmHoSoHS_Load(object sender, EventArgs e)
+        {
+            ShowData();
             Lop();
-		}
+        }
         List<string> lst = new List<string>();
         public void ShowData()
-		{
-			dt.OpenConnection();
-			SqlCommand cmd = new SqlCommand();
-			cmd.CommandType = CommandType.Text;
-			cmd.CommandText = "select * from HOSOHOCSINH";
-			cmd.Connection = dt.conn;
+        {
+            dt.OpenConnection();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from HOSOHOCSINH";
+            cmd.Connection = dt.conn;
 
-			SqlDataReader reader = cmd.ExecuteReader();
-			
-			while (reader.Read())
-			{
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
                 string mahs = reader.GetString(0);
                 ListViewItem liv = new ListViewItem(reader.GetString(0));
-				liv.SubItems.Add(reader.GetString(1));
-				liv.SubItems.Add(reader.GetString(2));
+                liv.SubItems.Add(reader.GetString(1));
+                liv.SubItems.Add(reader.GetString(2));
                 liv.SubItems.Add(reader.GetDateTime(3).ToString());
-                liv.SubItems.Add(reader.GetString(4));              
+                liv.SubItems.Add(reader.GetString(4));
                 liv.SubItems.Add(reader.GetString(8));
-                liv.SubItems.Add(reader.GetString(5));
+                liv.SubItems.Add(reader.GetInt32(5).ToString());
                 lst.Add(mahs);
-				lvHS.Items.Add(liv);
-			}
-			reader.Close();
-		}
+                lvHS.Items.Add(liv);
+            }
+            reader.Close();
+        }
         #endregion
 
         private void lvHS_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             ListViewItem liv = lvHS.SelectedItems[0];
             txtmahs.Text = liv.SubItems[0].Text;
             txttenhs.Text = liv.SubItems[1].Text;
-            if(rdnam.Text.ToLower() == liv.SubItems[2].Text.ToLower())
+            if (rdnam.Text.ToLower() == liv.SubItems[2].Text.ToLower())
             {
                 rdnam.Checked = true;
                 rdnu.Checked = false;
@@ -72,7 +72,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
                 rdnu.Checked = true;
                 rdnam.Checked = false;
             }
-                       
+
             dtNS.Value = DateTime.Parse(liv.SubItems[3].Text);
             txtdiachi.Text = liv.SubItems[4].Text;
             cblop.Text = liv.SubItems[5].Text;
@@ -174,7 +174,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
                 liv.SubItems.Add(cblop.Text);
                 liv.SubItems.Add(txtsdt.Text);
                 lvHS.Items.Add(liv);
-               
+
             }
         }
 
@@ -188,7 +188,7 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 
             cmd.Parameters.Add("@MAHS", SqlDbType.NVarChar).Value = txtmahs.Text;
             cmd.Parameters.Add("@TENHS", SqlDbType.NVarChar).Value = txttenhs.Text;
-            if(rdnam.Checked == true)
+            if (rdnam.Checked == true)
             {
                 cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = "Nam";
             }
@@ -242,10 +242,10 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             {
                 cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = "Nam";
             }
-            else if(rdnu.Checked == true)
+            else if (rdnu.Checked == true)
             {
                 cmd.Parameters.Add("@GIOITINH", SqlDbType.NVarChar).Value = "Nữ";
-                txtTimKiemhs.Text = rdnu.Text;
+                txtTimKiemHS.Text = rdnu.Text;
             }
             cmd.Parameters.Add("@NGAYSINH", SqlDbType.Date).Value = dtNS.Value;
             cmd.Parameters.Add("@DIACHI", SqlDbType.NVarChar).Value = txtdiachi.Text;
@@ -288,29 +288,153 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 
         }
 
-        private void btnTimKiemhs_Click(object sender, EventArgs e)
+        private void btnTimKiemHS_Click(object sender, EventArgs e)
         {
-            string sr = txtTimKiemhs.Text;
-            dt.OpenConnection();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from HOSOHOCSINH Where MAHS like '%" + sr + "%'";
-            cmd.Connection = dt.conn;
-            SqlDataReader reader = cmd.ExecuteReader();
-            lvHS.Items.Clear();
-            while (reader.Read())
+            if (cbbTimKiemHS.SelectedIndex == 0)
             {
-                ListViewItem liv = new ListViewItem(reader.GetString(0));
-                liv.SubItems.Add(reader.GetString(1));
-                liv.SubItems.Add(reader.GetString(2));
-                liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
-                liv.SubItems.Add(reader.GetString(4));
-                liv.SubItems.Add(reader.GetString(8));
-                liv.SubItems.Add(reader.GetString(5));
-     
-                lvHS.Items.Add(liv);
+                string sr = txtTimKiemHS.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from HOSOHOCSINH Where MAHS like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvHS.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
+                    liv.SubItems.Add(reader.GetString(4));
+                    liv.SubItems.Add(reader.GetString(8));
+                    liv.SubItems.Add(reader.GetInt32(5).ToString());
+
+                    lvHS.Items.Add(liv);
+                }
+                reader.Close();
             }
-            reader.Close();
+            else if (cbbTimKiemHS.SelectedIndex == 1)
+            {
+                string sr = txtTimKiemHS.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from HOSOHOCSINH Where TENHS like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvHS.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
+                    liv.SubItems.Add(reader.GetString(4));
+                    liv.SubItems.Add(reader.GetString(8));
+                    liv.SubItems.Add(reader.GetInt32(5).ToString());
+
+                    lvHS.Items.Add(liv);
+                }
+                reader.Close();
+            }
+
+            else if (cbbTimKiemHS.SelectedIndex == 2)
+            {
+                string sr = txtTimKiemHS.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from HOSOHOCSINH Where NGAYSINH like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvHS.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
+                    liv.SubItems.Add(reader.GetString(4));
+                    liv.SubItems.Add(reader.GetString(8));
+                    liv.SubItems.Add(reader.GetInt32(5).ToString());
+
+                    lvHS.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTimKiemHS.SelectedIndex == 3)
+            {
+                string sr = txtTimKiemHS.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from HOSOHOCSINH Where LOPHOC like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvHS.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
+                    liv.SubItems.Add(reader.GetString(4));
+                    liv.SubItems.Add(reader.GetString(8));
+                    liv.SubItems.Add(reader.GetInt32(5).ToString());
+
+                    lvHS.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTimKiemHS.SelectedIndex == 4)
+            {
+                string sr = txtTimKiemHS.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from HOSOHOCSINH Where SODIENTHOAI like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvHS.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
+                    liv.SubItems.Add(reader.GetString(4));
+                    liv.SubItems.Add(reader.GetString(8));
+                    liv.SubItems.Add(reader.GetInt32(5).ToString());
+
+                    lvHS.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTimKiemHS.SelectedIndex == 5)
+            {
+                string sr = txtTimKiemHS.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from HOSOHOCSINH Where DIACHI like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvHS.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(DateTime.Parse(reader[3].ToString()).ToString("dd/MM/yyyy"));
+                    liv.SubItems.Add(reader.GetString(4));
+                    liv.SubItems.Add(reader.GetString(8));
+                    liv.SubItems.Add(reader.GetInt32(5).ToString());
+
+                    lvHS.Items.Add(liv);
+                }
+                reader.Close();
+            }
         }
     }
 }
