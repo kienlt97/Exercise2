@@ -298,5 +298,51 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
             }
         }
         #endregion
+
+        #region TimKiem_MonHoc
+        private void btnTimKiemMon_Click(object sender, EventArgs e)
+        {
+            if (cbbTKMon.SelectedIndex == 0)
+            {
+                string sr = txtTimKiemMon.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT *FROM MONHOC Where MAMON like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvMonHoc.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    lvMonHoc.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTKMon.SelectedIndex == 1)
+            {
+                string sr = txtTimKiemMon.Text;
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT *FROM MONHOC Where TENMON like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvMonHoc.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    lvMonHoc.Items.Add(liv);
+                }
+                reader.Close();
+            }
+        }
+        #endregion
     }
 }

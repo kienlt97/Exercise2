@@ -62,6 +62,9 @@
             this.btnTimKiemLop = new System.Windows.Forms.Button();
             this.txtTimKiemLop = new System.Windows.Forms.TextBox();
             this.cbbTKLop = new System.Windows.Forms.ComboBox();
+            this.btnTimKiemMon = new System.Windows.Forms.Button();
+            this.cbbTKMon = new System.Windows.Forms.ComboBox();
+            this.txtTimKiemMon = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -306,6 +309,9 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox4.Controls.Add(this.txtTimKiemMon);
+            this.groupBox4.Controls.Add(this.cbbTKMon);
+            this.groupBox4.Controls.Add(this.btnTimKiemMon);
             this.groupBox4.Controls.Add(this.txtghichu);
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.btnresetmh);
@@ -342,9 +348,9 @@
             // 
             // btnresetmh
             // 
-            this.btnresetmh.Location = new System.Drawing.Point(209, 152);
+            this.btnresetmh.Location = new System.Drawing.Point(99, 152);
             this.btnresetmh.Name = "btnresetmh";
-            this.btnresetmh.Size = new System.Drawing.Size(100, 23);
+            this.btnresetmh.Size = new System.Drawing.Size(57, 23);
             this.btnresetmh.TabIndex = 14;
             this.btnresetmh.Text = "Reset";
             this.btnresetmh.UseVisualStyleBackColor = true;
@@ -352,9 +358,9 @@
             // 
             // btnxoamh
             // 
-            this.btnxoamh.Location = new System.Drawing.Point(63, 152);
+            this.btnxoamh.Location = new System.Drawing.Point(26, 152);
             this.btnxoamh.Name = "btnxoamh";
-            this.btnxoamh.Size = new System.Drawing.Size(100, 23);
+            this.btnxoamh.Size = new System.Drawing.Size(64, 23);
             this.btnxoamh.TabIndex = 13;
             this.btnxoamh.Text = "Xóa";
             this.btnxoamh.UseVisualStyleBackColor = true;
@@ -362,9 +368,9 @@
             // 
             // btnsuamh
             // 
-            this.btnsuamh.Location = new System.Drawing.Point(209, 110);
+            this.btnsuamh.Location = new System.Drawing.Point(99, 110);
             this.btnsuamh.Name = "btnsuamh";
-            this.btnsuamh.Size = new System.Drawing.Size(100, 23);
+            this.btnsuamh.Size = new System.Drawing.Size(57, 23);
             this.btnsuamh.TabIndex = 12;
             this.btnsuamh.Text = "Sửa";
             this.btnsuamh.UseVisualStyleBackColor = true;
@@ -372,9 +378,9 @@
             // 
             // btnthemmh
             // 
-            this.btnthemmh.Location = new System.Drawing.Point(63, 110);
+            this.btnthemmh.Location = new System.Drawing.Point(26, 110);
             this.btnthemmh.Name = "btnthemmh";
-            this.btnthemmh.Size = new System.Drawing.Size(100, 23);
+            this.btnthemmh.Size = new System.Drawing.Size(64, 23);
             this.btnthemmh.TabIndex = 11;
             this.btnthemmh.Text = "Thêm";
             this.btnthemmh.UseVisualStyleBackColor = true;
@@ -439,6 +445,34 @@
             this.cbbTKLop.Name = "cbbTKLop";
             this.cbbTKLop.Size = new System.Drawing.Size(140, 21);
             this.cbbTKLop.TabIndex = 9;
+            // 
+            // btnTimKiemMon
+            // 
+            this.btnTimKiemMon.Location = new System.Drawing.Point(233, 168);
+            this.btnTimKiemMon.Name = "btnTimKiemMon";
+            this.btnTimKiemMon.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiemMon.TabIndex = 17;
+            this.btnTimKiemMon.Text = "Tìm Kiếm";
+            this.btnTimKiemMon.UseVisualStyleBackColor = true;
+            this.btnTimKiemMon.Click += new System.EventHandler(this.btnTimKiemMon_Click);
+            // 
+            // cbbTKMon
+            // 
+            this.cbbTKMon.FormattingEnabled = true;
+            this.cbbTKMon.Items.AddRange(new object[] {
+            "Theo Mã Môn Học ",
+            "Theo Tên Môn Học"});
+            this.cbbTKMon.Location = new System.Drawing.Point(186, 141);
+            this.cbbTKMon.Name = "cbbTKMon";
+            this.cbbTKMon.Size = new System.Drawing.Size(121, 21);
+            this.cbbTKMon.TabIndex = 18;
+            // 
+            // txtTimKiemMon
+            // 
+            this.txtTimKiemMon.Location = new System.Drawing.Point(186, 110);
+            this.txtTimKiemMon.Name = "txtTimKiemMon";
+            this.txtTimKiemMon.Size = new System.Drawing.Size(121, 20);
+            this.txtTimKiemMon.TabIndex = 19;
             // 
             // frmLop_MonHoc
             // 
@@ -506,5 +540,8 @@
         private System.Windows.Forms.ComboBox cbbTKLop;
         private System.Windows.Forms.TextBox txtTimKiemLop;
         private System.Windows.Forms.Button btnTimKiemLop;
+        private System.Windows.Forms.TextBox txtTimKiemMon;
+        private System.Windows.Forms.ComboBox cbbTKMon;
+        private System.Windows.Forms.Button btnTimKiemMon;
     }
 }
