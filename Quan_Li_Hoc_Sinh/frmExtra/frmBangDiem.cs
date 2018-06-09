@@ -252,26 +252,78 @@ namespace Quan_Li_Hoc_Sinh.frmExtra
 
         private void btnTimKiemd_Click(object sender, EventArgs e)
         {
-            string sr = txtTimKiemd.Text;
-            dt.OpenConnection();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from BANGDIEM Where MAHS like '%" + sr + "%'";
-            cmd.Connection = dt.conn;
-            SqlDataReader reader = cmd.ExecuteReader();
-            lvDB.Items.Clear();
-            while (reader.Read())
+            if (cbbTKd.SelectedIndex == 0)
             {
-                ListViewItem liv = new ListViewItem(reader.GetString(0));
-                liv.SubItems.Add(reader.GetString(1));
-                liv.SubItems.Add(reader.GetString(2));
-                liv.SubItems.Add(reader.GetDouble(3).ToString());
-                liv.SubItems.Add(reader.GetDouble(4).ToString());
-                liv.SubItems.Add(reader.GetDouble(5).ToString());
-                liv.SubItems.Add(reader.GetDouble(6).ToString());
-                lvDB.Items.Add(liv);
+                string sr = txtTimKiemd.Text;
+
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from BANGDIEM Where MAHS like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvDB.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(reader.GetDouble(3).ToString());
+                    liv.SubItems.Add(reader.GetDouble(4).ToString());
+                    liv.SubItems.Add(reader.GetDouble(5).ToString());
+                    liv.SubItems.Add(reader.GetDouble(6).ToString());
+                    lvDB.Items.Add(liv);
+                }
+                reader.Close();
             }
-            reader.Close();
+            else if (cbbTKd.SelectedIndex == 1)
+            {
+                string sr = txtTimKiemd.Text;
+
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from BANGDIEM Where MAMON like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvDB.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(reader.GetDouble(3).ToString());
+                    liv.SubItems.Add(reader.GetDouble(4).ToString());
+                    liv.SubItems.Add(reader.GetDouble(5).ToString());
+                    liv.SubItems.Add(reader.GetDouble(6).ToString());
+                    lvDB.Items.Add(liv);
+                }
+                reader.Close();
+            }
+            else if (cbbTKd.SelectedIndex == 2)
+            {
+                string sr = txtTimKiemd.Text;
+
+                dt.OpenConnection();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from BANGDIEM Where HOCKY like '%" + sr + "%'";
+                cmd.Connection = dt.conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+                lvDB.Items.Clear();
+                while (reader.Read())
+                {
+                    ListViewItem liv = new ListViewItem(reader.GetString(0));
+                    liv.SubItems.Add(reader.GetString(1));
+                    liv.SubItems.Add(reader.GetString(2));
+                    liv.SubItems.Add(reader.GetDouble(3).ToString());
+                    liv.SubItems.Add(reader.GetDouble(4).ToString());
+                    liv.SubItems.Add(reader.GetDouble(5).ToString());
+                    liv.SubItems.Add(reader.GetDouble(6).ToString());
+                    lvDB.Items.Add(liv);
+                }
+                reader.Close();
+            }
         }
 
         private void btnResetd_Click(object sender, EventArgs e)
